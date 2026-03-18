@@ -1213,107 +1213,6 @@
     }
     .footer-bottom p { color: var(--muted); font-size: 0.82rem; }
 
-    /* ═══════════════════════════════
-       MODAL
-    ═══════════════════════════════ */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(16px);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .modal-overlay.active { opacity: 1; pointer-events: all; }
-    .modal {
-      background: var(--card);
-      border: 1px solid rgba(0,185,255,0.2);
-      border-radius: 28px;
-      padding: 52px 44px;
-      max-width: 540px;
-      width: 100%;
-      position: relative;
-      transform: translateY(24px) scale(0.98);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-    .modal-overlay.active .modal { transform: translateY(0) scale(1); }
-    .modal-close {
-      position: absolute;
-      top: 20px; right: 20px;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: none;
-      color: var(--muted);
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-    }
-    .modal-close:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,185,255,0.07); }
-    .modal-icon { font-size: 2.5rem; margin-bottom: 16px; }
-    .modal h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .modal > p { color: var(--muted); font-size: 0.95rem; margin-bottom: 32px; }
-
-    .form-field { margin-bottom: 18px; }
-    .form-field label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
-    .form-field input, .form-field select {
-      width: 100%;
-      padding: 14px 18px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-field input:focus, .form-field select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0,185,255,0.12);
-    }
-    .form-field input::placeholder { color: var(--muted); }
-    .form-field select option { background: var(--card); }
-    .btn-submit {
-      width: 100%;
-      padding: 18px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border: none;
-      border-radius: 14px;
-      color: #fff;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(0,185,255,0.3);
-    }
-    .btn-submit:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 6px 40px rgba(0,185,255,0.45); }
-
-    .form-success {
-      text-align: center;
-      padding: 40px 0 20px;
-      display: none;
-    }
-    .success-icon { font-size: 4rem; margin-bottom: 20px; animation: pop 0.5s ease; }
-    @keyframes pop { 0%{transform:scale(0)} 70%{transform:scale(1.15)} 100%{transform:scale(1)} }
-    .form-success h3 { font-family: 'Syne',sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
-    .form-success p { color: var(--muted); font-size: 1rem; line-height: 1.7; }
 
     /* ═══════════════════════════════
        SCROLL ANIMATIONS
@@ -1334,9 +1233,105 @@
     .d4 { transition-delay: 0.4s; }
     .d5 { transition-delay: 0.5s; }
 
+    /* ── REGISTER SECTION ── */
+    .register-section { background: var(--surface); }
+    .register-wrap {
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 72px;
+      align-items: center;
+    }
+    .register-left h2 { margin-bottom: 16px; }
+    .register-left p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+    .register-perks { display: flex; flex-direction: column; gap: 14px; }
+    .register-perk {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .register-perk-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .register-form-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    /* ── HAMBURGER NAV ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px; left: 0; right: 0;
+      background: rgba(3,5,14,0.98);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 5%;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 199;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .mob-cta {
+      display: inline-flex;
+      justify-content: center;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50px;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border-bottom: none;
+      margin-top: 8px;
+      box-shadow: 0 0 28px rgba(0,185,255,0.3);
+    }
+
     /* ═══════════════════════════════
        RESPONSIVE
     ═══════════════════════════════ */
+    @media (max-width: 1100px) {
+      .register-wrap { grid-template-columns: 1fr; gap: 56px; }
+      .register-form-box { max-width: 600px; margin: 0 auto; width: 100%; }
+    }
     @media (max-width: 1024px) {
       .host-wrapper { grid-template-columns: 1fr; gap: 60px; }
       .host-card { max-width: 440px; margin: 0 auto; }
@@ -1348,33 +1343,319 @@
       .diff-header { grid-template-columns: 1fr; gap: 24px; }
     }
     @media (max-width: 768px) {
-      section { padding: 90px 5%; }
+      section { padding: 80px 5%; }
+      h1 { font-size: clamp(1.9rem, 7vw, 3rem); }
+      h2 { font-size: clamp(1.7rem, 5.5vw, 2.4rem); }
+      .hero { padding: 120px 5% 70px; }
       .pain-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
-      .scarcity-inner { padding: 56px 32px; }
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+      .scarcity-inner { padding: 48px 24px; }
       .host-stats-grid { grid-template-columns: repeat(3, 1fr); }
-      .powered-banner { flex-direction: column; text-align: center; gap: 28px; }
+      .powered-banner { flex-direction: column; text-align: center; gap: 28px; padding: 32px 24px; }
+      .powered-intro { text-align: center; }
       .powered-brands { flex-direction: column; gap: 20px; }
       .powered-divider { width: 60%; height: 1px; }
       .powered-brand { justify-content: center; }
       nav { padding: 16px 5%; }
       .nav-link { display: none; }
-    }
-    @media (max-width: 480px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.9rem; }
-      .btn-primary { padding: 18px 36px; font-size: 1rem; }
-      .btn-white { padding: 18px 36px; font-size: 1rem; }
-      .pill { font-size: 0.9rem; padding: 12px 18px; }
-      .countdown { gap: 6px; }
-      .cd-sep { font-size: 1.5rem; margin-bottom: 16px; }
-      .cd-box { min-width: 64px; padding: 14px 10px 12px; }
-      .cd-num { font-size: 1.9rem; }
-      .cd-box { min-width: 58px; padding: 12px 10px; }
-      .cd-num { font-size: 1.6rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .live-badge { font-size: 0.72rem; padding: 6px 16px; }
+      .event-pills { gap: 10px; }
+      .pill { font-size: 0.88rem; padding: 10px 16px; }
+      .urgency-bar { font-size: 0.88rem; padding: 12px 18px; text-align: left; }
+      .countdown-wrap { margin-top: 48px; }
+      .host-info { text-align: center; }
+      .host-name-big { text-align: center; }
+      .host-role-big { text-align: center; }
+      .host-bio-text { text-align: left; }
+      .faq-left-card { padding: 28px 24px; }
+      .faq-still-have { padding: 24px; }
+      .cta-section { padding: 80px 5%; }
+      .final-section { padding: 100px 5%; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 20px; }
       .footer-info { order: -1; }
     }
+    @media (max-width: 600px) {
+      .diff-grid { grid-template-columns: 1fr; }
+      .host-stats-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .hstat { padding: 16px 10px; }
+      .hstat-num { font-size: 1.4rem; }
+      .proof-card { padding: 28px 22px; }
+      .pain-card { padding: 26px 22px; }
+      .promise-item { padding: 18px 20px; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 70px 4%; }
+      .hero { padding: 110px 4% 60px; }
+      .btn-primary { padding: 16px 28px; font-size: 0.95rem; }
+      .btn-white { padding: 16px 28px; font-size: 0.95rem; }
+      .pill { font-size: 0.82rem; padding: 10px 14px; gap: 7px; }
+      .event-pills { gap: 8px; }
+      .countdown { gap: 6px; flex-wrap: nowrap; }
+      .cd-sep { font-size: 1.4rem; margin-bottom: 18px; }
+      .cd-box { min-width: 56px; padding: 12px 8px 10px; }
+      .cd-num { font-size: 1.5rem; }
+      .cd-unit { font-size: 0.62rem; }
+      .scarcity-inner { padding: 40px 18px; }
+      .seats-widget { padding: 20px 18px; }
+      .truth-banner { padding: 28px 20px; font-size: 1rem; }
+      .faq-q { padding: 18px 20px; font-size: 0.95rem; }
+      .faq-a { padding: 0 20px; }
+      .faq-item.open .faq-a { padding: 0 20px 18px; }
+      .host-stats-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .marquee-item { font-size: 0.82rem; padding: 0 20px; }
+      .final-headline { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+      .footer-bottom p { font-size: 0.75rem; }
+      .register-wrap { gap: 40px; }
+    }
+  </style>
+
+  <!-- ═══ ZOHO CAMPAIGNS SDK ═══ -->
+  <script type="text/javascript" src="https://zvqjc-zgpl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a','ZCFORMVIEW',false,'acc',false,'2')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a(th){ };
+  </script>
+
+  <!-- ═══ ZOHO FORM — DARK THEME STYLING ═══ -->
+  <style>
+  /* ── Box-sizing reset required by Zoho ── */
+  #sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a #customForm *:not(.dateClass){-webkit-box-sizing:border-box!important;-moz-box-sizing:border-box!important;box-sizing:border-box!important;word-break:break-word;overflow-wrap:break-word;}
+  #sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a .dateClass{-webkit-box-sizing:unset!important;-moz-box-sizing:unset!important;box-sizing:unset!important;}
+
+  /* ── Page wrapper ── */
+  #SIGNUP_PAGE {
+    background: transparent !important;
+    padding: 0 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    color: #eaf0ff !important;
+  }
+
+  /* ── Logo block ── */
+  #imgBlock {
+    width: 100% !important;
+    padding: 28px 32px 0 !important;
+    text-align: left !important;
+  }
+  #iframeImg { width: 80px !important; height: auto !important; }
+
+  /* ── Form container ── */
+  #signupMainDiv {
+    width: 100% !important;
+    min-width: unset !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* ── Heading ── */
+  #SIGNUP_HEADING {
+    background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
+    color: #fff !important;
+    font-family: 'Syne', sans-serif !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    padding: 20px 32px !important;
+    border: none !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* ── Body area ── */
+  #SIGNUP_BODY {
+    background: #0b1228 !important;
+    padding: 28px 32px !important;
+    text-align: left !important;
+    font-size: 0.95rem !important;
+    color: #eaf0ff !important;
+    opacity: 1 !important;
+  }
+
+  /* ── Description text ── */
+  #SIGNUP_DESCRIPTION {
+    color: #6e829e !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* ── Error message ── */
+  #errorMsgDiv {
+    display: none;
+    background: rgba(210,0,0,0.12) !important;
+    border: 1px solid rgba(210,0,0,0.35) !important;
+    color: #ff6b6b !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 0.88rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* ── Field rows ── */
+  .zcsffieldsdiv > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin-bottom: 14px !important;
+    float: none !important;
+    clear: both !important;
+    padding: 0 !important;
+  }
+
+  /* ── Labels ── */
+  [name="SIGNUP_FORM_LABEL"] {
+    width: 100% !important;
+    float: none !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: #b0c0d8 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    margin: 0 !important;
+  }
+  [name="SIGNUP_REQUIRED"] { color: #00b9ff !important; }
+
+  /* ── Input boxes ── */
+  .zcinputbox {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    min-width: unset !important;
+  }
+  .zcinputbox input[type="text"],
+  .zcinputbox input[type="email"] {
+    width: 100% !important;
+    height: 46px !important;
+    padding: 0 14px !important;
+    background: #070b1a !important;
+    border: 1px solid rgba(0,185,255,0.2) !important;
+    border-radius: 10px !important;
+    color: #eaf0ff !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    outline: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+  }
+  .zcinputbox input:focus {
+    border-color: #00b9ff !important;
+    box-shadow: 0 0 0 3px rgba(0,185,255,0.12) !important;
+  }
+  .zcinputbox input::placeholder { color: #3a4f6a !important; }
+
+  /* ── Captcha section ── */
+  #captchaOld {
+    padding: 0 !important;
+    margin: 8px 0 16px !important;
+  }
+  #captchaParent {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+  }
+  #captchaDiv {
+    background: #070b1a !important;
+    border: 1px solid rgba(0,185,255,0.2) !important;
+    border-radius: 10px !important;
+    padding: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 8px !important;
+  }
+  #captchaText {
+    width: 100% !important;
+    height: 46px !important;
+    padding: 0 14px !important;
+    background: #070b1a !important;
+    border: 1px solid rgba(0,185,255,0.2) !important;
+    border-radius: 10px !important;
+    color: #eaf0ff !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    outline: none !important;
+    margin-top: 0 !important;
+  }
+  #captchaText:focus { border-color: #00b9ff !important; box-shadow: 0 0 0 3px rgba(0,185,255,0.12) !important; }
+  #captchaText::placeholder { color: #3a4f6a !important; }
+  #relCaptcha {
+    float: right !important;
+    margin: 0 0 6px 0 !important;
+    cursor: pointer !important;
+    opacity: 0.6 !important;
+    transition: opacity 0.2s !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+  #relCaptcha:hover { opacity: 1 !important; }
+  #capRequired { color: #00b9ff !important; float: right !important; margin-top: -32px !important; font-size: 0.9rem !important; }
+
+  /* ── Required fields note ── */
+  #REQUIRED_FIELD_TEXT {
+    color: #6e829e !important;
+    font-size: 0.82rem !important;
+    padding: 10px 0 !important;
+    font-family: 'DM Sans', sans-serif !important;
+  }
+
+  /* ── Submit button ── */
+  #zcWebOptin {
+    display: block !important;
+    width: 100% !important;
+    padding: 16px !important;
+    background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    letter-spacing: 0.04em !important;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s !important;
+    box-shadow: 0 0 30px rgba(0,185,255,0.3) !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    margin-top: 4px !important;
+  }
+  #zcWebOptin:hover { opacity: 0.9 !important; transform: translateY(-2px) !important; box-shadow: 0 6px 40px rgba(0,185,255,0.45) !important; }
+
+  /* ── Privacy note ── */
+  #privacyNotes {
+    padding: 16px 32px 24px !important;
+    background: #0b1228 !important;
+    height: auto !important;
+    font-size: 0.82rem !important;
+    color: #4a6080 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    border-top: 1px solid rgba(0,185,255,0.08) !important;
+    margin: 0 !important;
+  }
+
+  /* ── Success message ── */
+  #Zc_SignupSuccess {
+    background: rgba(0,229,138,0.08) !important;
+    border: 2px solid rgba(0,229,138,0.35) !important;
+    border-radius: 10px !important;
+    padding: 14px !important;
+    margin: 0 0 16px !important;
+    color: #00e58a !important;
+  }
+  #signupSuccessMsg { color: #00e58a !important; font-family: 'DM Sans',sans-serif !important; font-size: 0.95rem !important; }
+
+  /* ── Success signup message box positioning ── */
+  #Zc_SignupSuccess { position: relative !important; margin-left: 0 !important; width: 100% !important; }
+
+  /* ── Remove Zoho SDK's default borders & backgrounds on inner wrappers ── */
+  #SIGNUP_BODY_ALL { border: none !important; background: transparent !important; }
+  .large_form_1_css { background: transparent !important; padding: 0 !important; }
+
+  /* ── Submit button container ── */
+  #zcWebOptin { display: block !important; width: 100% !important; margin: 0 !important; }
+  #zcWebOptin + div, [style*="padding:10px;text-align:center"] { padding: 0 !important; }
+
+  /* ── Separator line above required text ── */
+  [style*="border-bottom:#ebebeb"] { display: none !important; }
+
+  /* ── Zoho success popup panel ── */
+  #zcOptinSuccessPanel { color: #eaf0ff; font-family: 'DM Sans',sans-serif; }
   </style>
 </head>
 <body>
@@ -1386,9 +1667,19 @@
     <a href="#pain" class="nav-link">About</a>
     <a href="#host" class="nav-link">Speaker</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#apply" class="nav-cta" onclick="openModal(event)">Apply Now →</a>
+    <a href="#register" class="nav-cta">Apply Now →</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#pain" onclick="closeMenu()">About the Event</a>
+  <a href="#host" onclick="closeMenu()">Meet the Speaker</a>
+  <a href="#why" onclick="closeMenu()">Why Attend</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#register" class="mob-cta" onclick="closeMenu()">👉 Apply Now — Free</a>
+</div>
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="home">
@@ -1424,7 +1715,7 @@
     ⚠️ &nbsp; Attendance is FREE but strictly by selection — Limited seats available. Once filled, registration closes permanently.
   </div>
 
-  <a href="#apply" class="btn-primary" onclick="openModal(event)">
+  <a href="#register" class="btn-primary">
     👉 Apply Now to Secure Your Spot
   </a>
   <span class="btn-sub">Takes less than 60 seconds · No credit card required</span>
@@ -1642,7 +1933,7 @@
           </div>
         </div>
 
-        <a href="#apply" class="btn-primary" onclick="openModal(event)" style="font-size:1rem; padding:18px 44px; align-self:flex-start; display:inline-flex;">
+        <a href="#register" class="btn-primary" style="font-size:1rem; padding:18px 44px; align-self:flex-start; display:inline-flex;">
           Learn From Dr. Akintayo →
         </a>
       </div>
@@ -1740,7 +2031,7 @@
         <div class="seats-bottom">Registration closes when <strong>all seats are taken</strong></div>
       </div>
 
-      <a href="#apply" class="btn-primary" onclick="openModal(event)" style="font-size:1.1rem; padding:20px 52px;">
+      <a href="#register" class="btn-primary" style="font-size:1.1rem; padding:20px 52px;">
         👉 Secure My Spot Before It's Gone
       </a>
     </div>
@@ -1748,13 +2039,13 @@
 </section>
 
 <!-- ═══════════ CTA SECTION ═══════════ -->
-<section class="cta-section" id="apply">
+<section class="cta-section" id="apply-cta">
   <div class="cta-bg-glow"></div>
   <div class="cta-inner reveal">
     <span class="section-tag" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff;">🚀 Don't Miss Out</span>
     <h2 style="margin-top: 24px;">Don't Wait Until Your<br/>Competitors Leave You Behind</h2>
     <p>Apply now and secure your chance to attend this exclusive AI masterclass conference — completely free.</p>
-    <a href="#apply" class="btn-white" onclick="openModal(event)">
+    <a href="#register" class="btn-white">
       👉 APPLY NOW — It's 100% Free
     </a>
   </div>
@@ -1787,7 +2078,7 @@
         </div>
         <div class="faq-still-have">
           <p>Still have a question we didn't answer?</p>
-          <a href="#apply" class="faq-cta-small" onclick="openModal(event)">Apply Now — It's Free →</a>
+          <a href="#register" class="faq-cta-small">Apply Now — It's Free →</a>
         </div>
       </div>
 
@@ -1853,7 +2144,7 @@
       The question is: will you <em>use it to win</em>… or be replaced by those who do?<br/>
       Your competitors aren't waiting. Neither should you.
     </p>
-    <a href="#apply" class="btn-primary reveal" onclick="openModal(event)" style="font-size:1.15rem; padding:22px 64px;">
+    <a href="#register" class="btn-primary reveal" style="font-size:1.15rem; padding:22px 64px;">
       👉 Apply Now Before Registration Closes
     </a>
   </div>
@@ -1869,7 +2160,7 @@
       <p style="margin-top:8px; font-size:0.82rem; color: var(--muted);">Powered by the Stephen Akintayo Foundation</p>
     </div>
     <div class="footer-cta">
-      <a href="#apply" onclick="openModal(event)">Apply Now — Free →</a>
+      <a href="#register">Apply Now — Free →</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1877,78 +2168,147 @@
   </div>
 </footer>
 
-<!-- ═══════════ MODAL ═══════════ -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+<!-- ═══════════ REGISTER SECTION ═══════════ -->
+<section class="register-section" id="register">
+  <div class="container">
+    <div class="register-wrap">
 
-    <div id="form-section">
-      <div class="modal-icon">🚀</div>
-      <h3>Apply for Your Spot</h3>
-      <p>Fill in your details below. Selected applicants receive confirmation within 48 hours. This is 100% free.</p>
+      <!-- Left: persuasion copy -->
+      <div class="register-left reveal-left">
+        <span class="section-tag">📋 Secure Your Spot</span>
+        <h2 style="margin-top:16px;">Register Now —<br/><span class="text-accent">It's 100% Free</span></h2>
+        <p>Fill in the form to apply for your seat. Selected applicants will receive a confirmation email within 24–48 hours. Spots are strictly limited.</p>
+        <div class="register-perks">
+          <div class="register-perk"><div class="register-perk-icon">✓</div> Free to attend — by selection only</div>
+          <div class="register-perk"><div class="register-perk-icon">✓</div> Confirmation email within 48 hours</div>
+          <div class="register-perk"><div class="register-perk-icon">✓</div> Saturday, 25th April · Eko Hotel, Lagos</div>
+          <div class="register-perk"><div class="register-perk-icon">✓</div> 8:00 AM – 12:00 PM · 4-hour masterclass</div>
+          <div class="register-perk"><div class="register-perk-icon">✓</div> Host: Dr. Stephen Akintayo</div>
+        </div>
+      </div>
 
-      <form id="apply-form" onsubmit="submitForm(event)">
-        <div class="form-field">
-          <label>Full Name *</label>
-          <input type="text" placeholder="Your full name" required />
+      <!-- Right: Zoho form -->
+      <div class="register-form-box reveal-right">
+        <!--Zoho Campaigns Web-Optin Form Starts Here-->
+        <div id="sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a" data-type="signupform">
+          <div id="customForm">
+            <input type="hidden" id="recapTheme" value="2">
+            <input type="hidden" id="isRecapIntegDone" value="false">
+            <input type="hidden" id="signupFormMode" value="copyCode">
+            <input type="hidden" id="signupFormType" value="LargeForm_Vertical">
+            <input type="hidden" id="recapModeTheme" value="">
+            <div name="SIGNUP_PAGE" class="large_form_1_css" id="SIGNUP_PAGE">
+              <div name="" changeid="" changename="">
+                <div id="imgBlock" name="LOGO_DIV" logo="true">
+                  <img valign="middle" src="https://stratus.campaign-image.com/images/136501c1a_509.png" name="LOGO" id="iframeImg">
+                </div>
+              </div>
+              <div id="signupMainDiv" name="SIGNUPFORM" changeid="SIGNUPFORM" changename="SIGNUPFORM">
+                <div>
+                  <div style="position:relative;">
+                    <div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color:white;padding:3px;border:3px solid rgb(194,225,154);margin-top:10px;margin-bottom:10px;word-break:break-all">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tbody><tr>
+                          <td width="10%"><img class="successicon" src="https://zvqjc-zgpl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle"></td>
+                          <td><span id="signupSuccessMsg">&nbsp;&nbsp;Thank you for Signing Up</span></td>
+                        </tr></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <form method="POST" id="zcampaignOptinForm" action="https://zvqjc-zgpl.maillist-manage.com/weboptin.zc" target="_zcSignup">
+                    <div id="SIGNUP_BODY_ALL" name="SIGNUP_BODY_ALL">
+                      <h1 id="SIGNUP_HEADING" name="SIGNUP_HEADING" changeid="SIGNUP_MSG" changetype="SIGNUP_HEADER">Signup to ABO Conference</h1>
+                      <div id="SIGNUP_BODY" name="SIGNUP_BODY">
+                        <div>
+                          <div class="" changeid="SIGNUP_MSG" id="SIGNUP_DESCRIPTION" changetype="SIGNUP_DESCRIPTION">Complete this form to apply for your free seat.</div>
+                          <div id="errorMsgDiv">&nbsp;&nbsp;Please correct the marked field(s) below.</div>
+                          <div>
+                            <div name="fieldsdivSf" class="zcsffieldsdiv">
+                              <div><div><div name="SIGNUP_FORM_LABEL">Contact Email&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="CONTACT_EMAIL" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="email"><span style="display:none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">First Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="FIRSTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text"><span style="display:none" id="dt_FIRSTNAME">1,true,1,First Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Last Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="LASTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text"><span style="display:none" id="dt_LASTNAME">1,true,1,Last Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Phone&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="PHONE" changeitem="SIGNUP_FORM_FIELD" maxlength="20" type="text"><span style="display:none" id="dt_PHONE">1,true,1,Phone,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Company Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="COMPANYNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text"><span style="display:none" id="dt_COMPANYNAME">1,true,1,Company Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Website Address&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="WEBSITE" changeitem="SIGNUP_FORM_FIELD" maxlength="250" type="text"><span style="display:none" id="dt_WEBSITE">1,true,1,Website Address,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Job Title&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="JOB_TITLE" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text"><span style="display:none" id="dt_JOB_TITLE">1,true,1,Job Title,2</span></div></div><div></div></div>
+                            </div>
+                            <div style="padding:10px 0px 10px 0px;" id="captchaOld" class="recaptcha" name="captchaContainer">
+                              <div><div id="captchaParent">
+                                <img src="//campaigns.zoho.com/images/refresh_icon.png" onclick="loadCaptcha('https://campaigns.zoho.com/campaigns/CaptchaVerify.zc?mode=generate',this,'#sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a');" id="relCaptcha">
+                                <div id="captchaDiv" captcha="true" name=""></div>
+                                <input placeholder="Enter Captcha" id="captchaText" name="captchaText" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text">
+                                <span name="SIGNUP_REQUIRED" id="capRequired">*</span>
+                              </div></div>
+                            </div>
+                            <input type="hidden" id="secretid" value="6LdNeDUUAAAAAG5l7cJfv1AA5OKLslkrOa_xXxLs">
+                            <div id="REQUIRED_FIELD_TEXT" changetype="REQUIRED_FIELD_TEXT" name="SIGNUP_REQUIRED">*Required Fields</div>
+                            <div>
+                              <input type="button" action="Save" id="zcWebOptin" name="SIGNUP_SUBMIT_BUTTON" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" value="Submit Application">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" id="fieldBorder" value="" onload="">
+                      <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW" onload="">
+                      <input type="hidden" name="viewFrom" id="viewFrom" value="URL_ACTION">
+                      <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                      <input type="hidden" id="lD" name="lD" value="114a4609bfc084128">
+                      <input type="hidden" name="emailReportId" id="emailReportId" value="">
+                      <input type="hidden" name="zx" id="cmpZuid" value="136501c1a">
+                      <input type="hidden" name="zcvers" value="3.0">
+                      <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                      <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                      <input type="hidden" id="zcld" name="zcld" value="114a4609bfc084128">
+                      <input type="hidden" id="zctd" name="zctd" value="114a4609bfbd077a9">
+                      <input type="hidden" id="document_domain" value="">
+                      <input type="hidden" id="zc_Url" value="zvqjc-zgpl.maillist-manage.com">
+                      <input type="hidden" id="new_optin_response_in" value="0">
+                      <input type="hidden" id="duplicate_optin_response_in" value="0">
+                      <input type="hidden" id="zc_formIx" name="zc_formIx" value="3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a">
+                    </div>
+                  </form>
+                </div>
+                <div id="privacyNotes" identity="privacyNotes">
+                  <span>🔒 Your data is 100% confidential and will never be shared.</span>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="isCaptchaNeeded" value="true">
+            <input type="hidden" id="superAdminCap" value="0">
+            <img src="https://zvqjc-zgpl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)" style="display:none;">
+          </div>
         </div>
-        <div class="form-field">
-          <label>Email Address *</label>
-          <input type="email" placeholder="your@email.com" required />
-        </div>
-        <div class="form-field">
-          <label>Phone Number *</label>
-          <input type="tel" placeholder="+234 800 000 0000" required />
-        </div>
-        <div class="form-field">
-          <label>Type of Business *</label>
-          <select required>
-            <option value="" disabled selected>Select your business type</option>
-            <option>E-commerce / Retail</option>
-            <option>Real Estate</option>
-            <option>Fashion / Beauty</option>
-            <option>Food &amp; Hospitality</option>
-            <option>Professional Services</option>
-            <option>Tech / Digital</option>
-            <option>Agriculture</option>
-            <option>Healthcare</option>
-            <option>Education / Coaching</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-submit">Submit My Application →</button>
-      </form>
-    </div>
+        <!--Zoho Campaigns Web-Optin Form Ends Here-->
+      </div><!-- /.register-form-box -->
+    </div><!-- /.register-wrap -->
+  </div><!-- /.container -->
+</section>
 
-    <div class="form-success" id="form-success">
-      <div class="success-icon">🎉</div>
-      <h3>Application Received!</h3>
-      <p>Thank you for applying! We'll carefully review your application and send a confirmation email within 24–48 hours. Keep an eye on your inbox (and spam folder just in case).</p>
-    </div>
-  </div>
+<!-- Zoho overlay + success popup (required by Zoho SDK) -->
+<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align:center;background-color:rgba(0,0,0,0.75);z-index:1000;position:fixed;width:100%;top:0px;left:0px;height:100%;"></div>
+<div id="zcOptinSuccessPopup" style="display:none;z-index:9999;width:min(520px,92vw);top:50%;left:50%;transform:translate(-50%,-50%);position:fixed;background:#0d1628;border:1px solid rgba(0,185,255,0.25);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.7);padding:40px 36px;">
+  <span style="position:absolute;top:14px;right:16px;z-index:99999;cursor:pointer;opacity:0.5;font-size:1.4rem;color:#eaf0ff;line-height:1;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none';document.getElementById('zcOptinOverLay').style.display='none';">✕</span>
+  <div id="zcOptinSuccessPanel"></div>
 </div>
 
 <script>
-  /* ── MODAL ── */
-  function openModal(e) {
-    e.preventDefault();
-    document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+  /* ── MOBILE MENU ── */
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
   }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.body.style.overflow = '';
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobile-menu').classList.remove('open');
   }
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modal')) closeModal();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('form-section').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
+  /* Close menu on outside click */
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const burger = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
+      closeMenu();
+    }
+  });
 
   /* ── FAQ ── */
   function toggleFaq(btn) {
