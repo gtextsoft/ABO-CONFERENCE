@@ -288,32 +288,108 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
-    .countdown-label { font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .countdown-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .countdown {
       display: flex;
-      gap: 16px;
+      gap: 12px;
+      align-items: center;
     }
+    .cd-sep {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.4;
+      margin-bottom: 20px;
+      animation: sepBlink 1s infinite;
+    }
+    @keyframes sepBlink { 0%,100%{opacity:0.4} 50%{opacity:0.1} }
+
     .cd-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      min-width: 70px;
-      padding: 14px 16px;
+      gap: 6px;
+      min-width: 80px;
+      padding: 18px 16px 14px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .cd-box::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 1px;
+      background: rgba(0,185,255,0.1);
+    }
+    .cd-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,185,255,0.04) 0%, transparent 50%, rgba(0,185,255,0.04) 100%);
+      pointer-events: none;
     }
     .cd-num {
       font-family: 'Syne', sans-serif;
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       line-height: 1;
       color: var(--accent);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      position: relative;
+      z-index: 1;
     }
-    .cd-unit { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .cd-num.flip {
+      transform: translateY(-6px);
+      opacity: 0;
+    }
+    .cd-unit {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Live / ended states */
+    .cd-live {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: rgba(0,229,138,0.1);
+      border: 1px solid rgba(0,229,138,0.3);
+      border-radius: 50px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .cd-live-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: blink 1s infinite;
+    }
+    .cd-ended {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
 
     /* ═══════════════════════════════
        MARQUEE STRIP
@@ -1290,7 +1366,10 @@
       .btn-primary { padding: 18px 36px; font-size: 1rem; }
       .btn-white { padding: 18px 36px; font-size: 1rem; }
       .pill { font-size: 0.9rem; padding: 12px 18px; }
-      .countdown { gap: 10px; }
+      .countdown { gap: 6px; }
+      .cd-sep { font-size: 1.5rem; margin-bottom: 16px; }
+      .cd-box { min-width: 64px; padding: 14px 10px 12px; }
+      .cd-num { font-size: 1.9rem; }
       .cd-box { min-width: 58px; padding: 12px 10px; }
       .cd-num { font-size: 1.6rem; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -1350,13 +1429,22 @@
   </a>
   <span class="btn-sub">Takes less than 60 seconds · No credit card required</span>
 
-  <div class="countdown-wrap">
-    <span class="countdown-label">Event starts in</span>
-    <div class="countdown">
-      <div class="cd-box"><span class="cd-num" id="cd-d">38</span><span class="cd-unit">Days</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-unit">Hrs</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-unit">Min</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-unit">Sec</span></div>
+  <div class="countdown-wrap" id="countdown-wrap">
+    <span class="countdown-label" id="countdown-label">Event starts in</span>
+    <div class="countdown" id="countdown-timer">
+      <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-unit">Days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-unit">Hours</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-unit">Minutes</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-unit">Seconds</span></div>
+    </div>
+    <div class="cd-live" id="cd-live">
+      <span class="cd-live-dot"></span> The Event Is Happening RIGHT NOW — Eko Hotel, Lagos
+    </div>
+    <div class="cd-ended" id="cd-ended">
+      This event has concluded. Stay tuned for the next one.
     </div>
   </div>
 </section>
@@ -1901,28 +1989,66 @@
   }
 
   /* ── COUNTDOWN TIMER ── */
+  // Target: Saturday, 25th April 2026 at 8:00 AM (local time)
+  const EVENT_START = new Date('2026-04-25T08:00:00');
+  const EVENT_END   = new Date('2026-04-25T12:00:00');
+
+  const elD = document.getElementById('cd-d');
+  const elH = document.getElementById('cd-h');
+  const elM = document.getElementById('cd-m');
+  const elS = document.getElementById('cd-s');
+  const elTimer  = document.getElementById('countdown-timer');
+  const elLabel  = document.getElementById('countdown-label');
+  const elLive   = document.getElementById('cd-live');
+  const elEnded  = document.getElementById('cd-ended');
+
+  // Flip animation helper
+  function flipTo(el, val) {
+    const str = String(val).padStart(2, '0');
+    if (el.textContent === str) return;
+    el.classList.add('flip');
+    setTimeout(() => {
+      el.textContent = str;
+      el.classList.remove('flip');
+    }, 150);
+  }
+
   function updateCountdown() {
-    const target = new Date('2025-04-25T08:00:00');
-    const now = new Date();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd-d').textContent = '00';
-      document.getElementById('cd-h').textContent = '00';
-      document.getElementById('cd-m').textContent = '00';
-      document.getElementById('cd-s').textContent = '00';
+    const now  = new Date();
+    const diff = EVENT_START - now;
+
+    // ── BEFORE EVENT ──
+    if (diff > 0) {
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000)  / 60000);
+      const s = Math.floor((diff % 60000)    / 1000);
+      flipTo(elD, d);
+      flipTo(elH, h);
+      flipTo(elM, m);
+      flipTo(elS, s);
+      elLabel.textContent = 'Event starts in';
       return;
     }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
-    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+
+    // ── EVENT IS LIVE ──
+    if (now >= EVENT_START && now < EVENT_END) {
+      elTimer.style.display = 'none';
+      elLabel.style.display = 'none';
+      elLive.style.display  = 'flex';
+      clearInterval(cdInterval);
+      return;
+    }
+
+    // ── EVENT ENDED ──
+    elTimer.style.display = 'none';
+    elLabel.style.display = 'none';
+    elEnded.style.display = 'block';
+    clearInterval(cdInterval);
   }
+
   updateCountdown();
-  setInterval(updateCountdown, 1000);
+  const cdInterval = setInterval(updateCountdown, 1000);
 
   /* ── FLOATING PARTICLES ── */
   const container = document.getElementById('particles');
