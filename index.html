@@ -9,7 +9,10 @@
   <meta property="og:title" content="AI for Business Owners Conference — ABO" />
   <meta property="og:description" content="Free AI masterclass for business owners. Eko Hotel, Lagos · 25 April 2026 · Selection-only seats. Hosted by Dr. Stephen Akintayo." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://stratus.campaign-image.com/images/136501c1a_509.png" />
+  <meta property="og:image:alt" content="ABO Conference — AI for Business Owners" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://stratus.campaign-image.com/images/136501c1a_509.png" />
   <meta name="twitter:title" content="AI for Business Owners Conference — ABO" />
   <meta name="twitter:description" content="Free AI class for business owners in Lagos. Practical AI for growth — 25 April 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -3022,23 +3025,34 @@
     }
   })();
 
-  /* Meta Pixel: fire Lead when Zoho success popup is shown */
+  /* Meta Pixel: fire Lead when Zoho shows success (inline #Zc_SignupSuccess or #zcOptinSuccessPopup) */
   (function () {
+    if (typeof MutationObserver === 'undefined') return;
     var popup = document.getElementById('zcOptinSuccessPopup');
-    if (!popup || typeof MutationObserver === 'undefined') return;
+    var inline = document.getElementById('Zc_SignupSuccess');
+    if (!popup && !inline) return;
     var fired = false;
+    function isSuccessVisible(el) {
+      if (!el) return false;
+      try {
+        var cs = window.getComputedStyle(el);
+        return cs.display !== 'none' && cs.visibility !== 'hidden';
+      } catch (e) {
+        return false;
+      }
+    }
     function tryLead() {
-      if (fired) return;
-      var show = false;
-      try { show = window.getComputedStyle(popup).display !== 'none'; } catch (e) {}
-      if (show && typeof fbq === 'function') {
+      if (fired || typeof fbq !== 'function') return;
+      if (isSuccessVisible(popup) || isSuccessVisible(inline)) {
         fired = true;
         fbq('track', 'Lead');
         mo.disconnect();
       }
     }
     var mo = new MutationObserver(tryLead);
-    mo.observe(popup, { attributes: true, attributeFilter: ['style'] });
+    if (popup) mo.observe(popup, { attributes: true, attributeFilter: ['style', 'class'] });
+    if (inline) mo.observe(inline, { attributes: true, attributeFilter: ['style', 'class'] });
+    tryLead();
   })();
 
   /* ── SEATS BAR ── */
