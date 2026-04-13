@@ -4,9 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI for Business Owners Conference — ABO</title>
+  <meta name="description" content="Free AI masterclass for business owners at Eko Hotel, Lagos — Saturday 25 April 2026, 8:00 AM – 12:00 PM. Practical strategies with Dr. Stephen Akintayo. Apply for your seat." />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="AI for Business Owners Conference — ABO" />
+  <meta property="og:description" content="Free AI masterclass for business owners. Eko Hotel, Lagos · 25 April 2026 · Selection-only seats. Hosted by Dr. Stephen Akintayo." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI for Business Owners Conference — ABO" />
+  <meta name="twitter:description" content="Free AI class for business owners in Lagos. Practical AI for growth — 25 April 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Meta Pixel Code -->
   <script>
@@ -28,17 +36,28 @@
 
   <style>
     :root {
-      --bg: #03050e;
-      --surface: #070b1a;
-      --card: #0b1228;
-      --border: rgba(0, 185, 255, 0.13);
+      --bg: #050816;
+      --surface: #0a1022;
+      --card: #0e162c;
+      --card-elevated: #111a32;
+      --border: rgba(0, 185, 255, 0.11);
+      --border-strong: rgba(0, 185, 255, 0.2);
       --accent: #00b9ff;
       --accent2: #7c3aff;
-      --gold: #f5c842;
-      --gold2: #ffb300;
-      --text: #eaf0ff;
-      --muted: #6e829e;
-      --green: #00e58a;
+      --accent-dim: rgba(0, 185, 255, 0.12);
+      --gold: #e8c65a;
+      --gold2: #f0a814;
+      --text: #f0f4fc;
+      --muted: #8b9ab8;
+      --green: #00d98a;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-display: 'Plus Jakarta Sans', var(--font-body);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+      --max-content: 1120px;
+      --announcement-bar-height: 48px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,10 +66,75 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      line-height: 1.75;
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ═══════════════════════════════
+       ANNOUNCEMENT BAR
+    ═══════════════════════════════ */
+    .announcement-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 201;
+      box-sizing: border-box;
+      min-height: var(--announcement-bar-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 5%;
+      background: linear-gradient(90deg, rgba(14, 22, 44, 0.98), rgba(20, 32, 58, 0.98));
+      border-bottom: 1px solid rgba(0, 185, 255, 0.15);
+    }
+    .announcement-bar-inner {
+      max-width: var(--max-content);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      text-align: center;
+    }
+    .announcement-bar-badge {
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0a1022;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .announcement-bar-text {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: rgba(240, 244, 252, 0.92);
+      max-width: 52rem;
+    }
+    .announcement-bar-text strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     /* ═══════════════════════════════
@@ -58,32 +142,64 @@
     ═══════════════════════════════ */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--announcement-bar-height);
+      left: 0; right: 0;
       z-index: 200;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 7%;
-      background: rgba(3, 5, 14, 0.75);
-      backdrop-filter: blur(24px);
+      padding: 16px 6%;
+      background: rgba(5, 8, 22, 0.82);
+      backdrop-filter: blur(20px) saturate(1.2);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .nav-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(145deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 185, 255, 0.25);
+      flex-shrink: 0;
     }
     .nav-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1.35rem;
-      letter-spacing: 0.04em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 220px;
+    }
+    .nav-logo span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
     }
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-link {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -92,21 +208,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 28px;
+      padding: 11px 22px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border: none;
-      border-radius: 50px;
+      border-radius: var(--radius-sm);
       color: #fff;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.92rem;
-      letter-spacing: 0.05em;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 0 28px rgba(0,185,255,0.35);
+      box-shadow: 0 4px 20px rgba(0, 185, 255, 0.28);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 36px rgba(0,185,255,0.5); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0, 185, 255, 0.4); }
 
     /* ═══════════════════════════════
        HERO
@@ -116,10 +232,9 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
-      text-align: center;
-      padding: 140px 7% 100px;
+      padding: calc(var(--announcement-bar-height) + 5.5rem) 6% 88px;
       overflow: hidden;
     }
 
@@ -128,40 +243,40 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0,185,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,185,255,0.06) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 10%, transparent 80%);
+        linear-gradient(rgba(0,185,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,185,255,0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 35%, black 15%, transparent 72%);
     }
 
     /* Glowing orbs */
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(100px);
+      filter: blur(120px);
       pointer-events: none;
     }
     .orb-1 {
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(0,185,255,0.15), transparent 65%);
-      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 720px; height: 720px;
+      background: radial-gradient(circle, rgba(0,185,255,0.1), transparent 68%);
+      top: -180px; left: 50%; transform: translateX(-50%);
     }
     .orb-2 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(124,58,255,0.18), transparent 65%);
-      bottom: -50px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(124,58,255,0.12), transparent 68%);
+      bottom: -40px; right: -80px;
     }
     .orb-3 {
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, rgba(245,200,66,0.1), transparent 65%);
-      bottom: 100px; left: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(232,198,90,0.06), transparent 68%);
+      bottom: 120px; left: -60px;
     }
 
     /* Floating particles */
-    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; opacity: 0.65; }
     .particle {
       position: absolute;
-      width: 3px; height: 3px;
+      width: 2px; height: 2px;
       border-radius: 50%;
       background: var(--accent);
       opacity: 0;
@@ -169,25 +284,91 @@
     }
     @keyframes float-up {
       0% { opacity: 0; transform: translateY(100vh) scale(0); }
-      10% { opacity: 0.7; }
-      90% { opacity: 0.3; }
+      10% { opacity: 0.5; }
+      90% { opacity: 0.2; }
       100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 360px);
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+    .hero-main {
+      text-align: left;
+    }
+    .hero-aside {
+      position: relative;
+    }
+    .hero-summary-card {
+      background: linear-gradient(165deg, var(--card-elevated), var(--card));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .hero-summary-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-summary-card .event-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+    .hero-summary-card .pill {
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.92rem;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .hero-actions {
+      margin-top: 28px;
+    }
+    .hero-actions .btn-sub {
+      margin-top: 12px;
+      text-align: left;
+    }
+    .hero-countdown-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+      padding-top: 48px;
+      text-align: center;
     }
 
     .live-badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 22px;
-      border: 1px solid rgba(0,185,255,0.25);
-      border-radius: 50px;
-      font-size: 0.82rem;
+      padding: 7px 16px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(0,185,255,0.07);
-      margin-bottom: 36px;
+      background: var(--accent-dim);
+      margin-bottom: 28px;
     }
     .live-dot {
       width: 8px; height: 8px;
@@ -199,13 +380,13 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
     h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+      font-family: var(--font-display);
+      font-size: clamp(2.15rem, 4.8vw, 3.65rem);
       font-weight: 800;
-      line-height: 1.08;
+      line-height: 1.12;
       letter-spacing: -0.03em;
-      max-width: 1000px;
-      margin-bottom: 28px;
+      max-width: 38rem;
+      margin-bottom: 22px;
     }
     .h1-accent { color: var(--accent); }
     .h1-gold {
@@ -223,70 +404,72 @@
     }
 
     .hero-sub {
-      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
       color: var(--muted);
-      max-width: 680px;
-      margin-bottom: 56px;
-      line-height: 1.8;
+      max-width: 36rem;
+      margin-bottom: 24px;
+      line-height: 1.75;
     }
 
     /* Event info pills */
     .event-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin-bottom: 44px;
+      gap: 12px;
+      justify-content: flex-start;
+      margin-bottom: 0;
     }
     .pill {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 26px;
-      background: var(--card);
+      padding: 12px 18px;
+      background: rgba(14, 22, 44, 0.6);
       border: 1px solid var(--border);
-      border-radius: 50px;
-      font-size: 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.94rem;
       font-weight: 500;
-      transition: border-color 0.3s, transform 0.2s;
+      transition: border-color 0.25s, background 0.25s;
     }
-    .pill:hover { border-color: rgba(0,185,255,0.35); transform: translateY(-2px); }
-    .pill-icon { font-size: 1.2rem; }
+    .pill:hover { border-color: var(--border-strong); background: rgba(17, 26, 50, 0.85); }
+    .pill-icon { font-size: 1.1rem; opacity: 0.9; }
 
     /* Urgency */
     .urgency-bar {
-      display: inline-flex;
-      align-items: center;
+      display: flex;
+      align-items: flex-start;
       gap: 12px;
-      padding: 16px 32px;
-      background: rgba(245, 200, 66, 0.08);
-      border: 1px solid rgba(245, 200, 66, 0.3);
-      border-radius: 12px;
-      font-size: 1rem;
+      padding: 14px 18px;
+      background: rgba(232, 198, 90, 0.06);
+      border: 1px solid rgba(232, 198, 90, 0.22);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--gold);
-      margin-bottom: 48px;
-      max-width: 580px;
+      margin-bottom: 28px;
+      max-width: 36rem;
+      line-height: 1.55;
     }
+    .urgency-bar strong { color: var(--text); font-weight: 600; }
 
     /* CTA Button */
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 22px 60px;
+      gap: 10px;
+      padding: 16px 28px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
       border: none;
-      border-radius: 60px;
+      border-radius: var(--radius-sm);
       color: #fff;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.04em;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 0 60px rgba(0,185,255,0.4), 0 8px 30px rgba(0,0,0,0.4);
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 8px 32px rgba(0, 185, 255, 0.28);
+      transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
       overflow: hidden;
     }
@@ -294,20 +477,20 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 55%);
       border-radius: inherit;
     }
-    .btn-primary:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 0 80px rgba(0,185,255,0.6), 0 16px 40px rgba(0,0,0,0.5); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0, 185, 255, 0.38); }
 
-    .btn-sub { display: block; margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
+    .btn-sub { display: block; margin-top: 14px; font-size: 0.82rem; color: var(--muted); }
 
     /* Countdown */
     .countdown-wrap {
-      margin-top: 64px;
+      margin-top: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
     .countdown-label {
       font-size: 0.8rem;
@@ -321,12 +504,12 @@
       align-items: center;
     }
     .cd-sep {
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
       font-weight: 800;
       color: var(--accent);
-      opacity: 0.4;
-      margin-bottom: 20px;
+      opacity: 0.35;
+      margin-bottom: 18px;
       animation: sepBlink 1s infinite;
     }
     @keyframes sepBlink { 0%,100%{opacity:0.4} 50%{opacity:0.1} }
@@ -336,11 +519,11 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      min-width: 80px;
-      padding: 18px 16px 14px;
+      min-width: 76px;
+      padding: 16px 14px 12px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius-md);
       position: relative;
       overflow: hidden;
       transition: border-color 0.3s;
@@ -360,8 +543,8 @@
       pointer-events: none;
     }
     .cd-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.4rem;
+      font-family: var(--font-display);
+      font-size: 2.1rem;
       font-weight: 800;
       line-height: 1;
       color: var(--accent);
@@ -387,12 +570,12 @@
       display: none;
       align-items: center;
       gap: 12px;
-      padding: 14px 28px;
-      background: rgba(0,229,138,0.1);
-      border: 1px solid rgba(0,229,138,0.3);
-      border-radius: 50px;
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
+      padding: 14px 24px;
+      background: rgba(0,217,138,0.08);
+      border: 1px solid rgba(0,217,138,0.28);
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--green);
     }
@@ -415,66 +598,85 @@
     ═══════════════════════════════ */
     .marquee-strip {
       overflow: hidden;
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-      padding: 16px 0;
+      background: linear-gradient(90deg, #0d1a32 0%, #152a4a 40%, #1a1f4a 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
       position: relative;
       z-index: 10;
+    }
+    .marquee-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(0,185,255,0.12), transparent);
+      pointer-events: none;
     }
     .marquee-track {
       display: flex;
       gap: 0;
       width: max-content;
-      animation: marquee 30s linear infinite;
+      animation: marquee 48s linear infinite;
     }
     @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
     .marquee-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 0 36px;
-      font-family: 'Syne', sans-serif;
+      padding: 0 32px;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
+      color: rgba(230, 238, 255, 0.88);
       white-space: nowrap;
     }
-    .marquee-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+    .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: 0.65; }
 
     /* ═══════════════════════════════
        SECTION COMMONS
     ═══════════════════════════════ */
     section {
       position: relative;
-      padding: 130px 7%;
+      padding: 100px 6%;
       z-index: 1;
     }
-    .container { max-width: 1100px; margin: 0 auto; }
+    .container { max-width: var(--max-content); margin: 0 auto; }
 
     .section-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 20px;
-      padding: 6px 18px;
-      border: 1px solid rgba(0,185,255,0.22);
-      border-radius: 50px;
-      background: rgba(0,185,255,0.06);
+      margin-bottom: 16px;
+      padding: 0 0 0 14px;
+      border-left: 3px solid var(--accent);
+      background: none;
+    }
+    .section-tag.tag-centered {
+      border-left: none;
+      padding-left: 0;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(0, 185, 255, 0.35);
+      justify-content: center;
+    }
+    .cta-eyebrow {
+      color: rgba(255, 255, 255, 0.92);
+      border-bottom-color: rgba(255, 255, 255, 0.28);
     }
 
     h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.8vw, 2.85rem);
       font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.025em;
-      margin-bottom: 20px;
+      line-height: 1.15;
+      letter-spacing: -0.028em;
+      margin-bottom: 16px;
     }
     .text-accent { color: var(--accent); }
     .text-gold { color: var(--gold); }
@@ -511,10 +713,10 @@
       display: flex;
       align-items: flex-start;
       gap: 20px;
-      padding: 36px 32px;
+      padding: 28px 26px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
       position: relative;
       overflow: hidden;
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -540,7 +742,7 @@
       font-size: 1.6rem;
     }
     .pain-card-body h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 6px;
@@ -548,12 +750,12 @@
     .pain-card-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
 
     .truth-banner {
-      padding: 40px 56px;
-      background: linear-gradient(135deg, rgba(124,58,255,0.14), rgba(0,185,255,0.09));
-      border: 1px solid rgba(124,58,255,0.35);
-      border-radius: 20px;
+      padding: 32px 40px;
+      background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(0,185,255,0.05));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
       text-align: center;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.1rem, 2vw, 1.45rem);
       font-weight: 700;
       line-height: 1.5;
@@ -591,10 +793,10 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 24px 28px;
+      padding: 20px 22px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: var(--radius-md);
       transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
     }
     .promise-item:hover { border-color: rgba(0,185,255,0.35); transform: translateX(8px); box-shadow: -4px 0 30px rgba(0,185,255,0.1); }
@@ -628,10 +830,10 @@
       gap: 20px;
     }
     .diff-card {
-      padding: 40px 28px;
+      padding: 32px 22px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
       text-align: center;
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       position: relative;
@@ -650,7 +852,7 @@
     .diff-card:hover::before { transform: scaleX(1); }
     .diff-icon { font-size: 2.2rem; margin-bottom: 16px; }
     .diff-num {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 3.2rem;
       font-weight: 800;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -661,7 +863,7 @@
       margin-bottom: 10px;
     }
     .diff-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 8px;
@@ -680,10 +882,10 @@
     }
     .host-visual { position: relative; }
     .host-card {
-      border-radius: 28px;
-      background: linear-gradient(145deg, var(--card), var(--surface));
-      border: 1px solid var(--border);
-      padding: 60px 40px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(165deg, var(--card-elevated), var(--card));
+      border: 1px solid var(--border-strong);
+      padding: 48px 36px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -714,7 +916,7 @@
       border: 3px solid var(--card);
     }
     .host-card-name {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 6px;
@@ -748,21 +950,21 @@
 
     .gold-tag {
       position: absolute;
-      top: -12px; right: -12px;
-      padding: 14px 20px;
+      top: -10px; right: -10px;
+      padding: 12px 16px;
       background: linear-gradient(135deg, var(--gold), var(--gold2));
-      border-radius: 16px;
-      font-family: 'Syne', sans-serif;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
       font-weight: 800;
-      font-size: 0.82rem;
-      color: #000;
+      font-size: 0.75rem;
+      color: #1a1408;
       line-height: 1.4;
-      box-shadow: 0 8px 30px rgba(245,200,66,0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
 
     .host-info { display: flex; flex-direction: column; gap: 0; }
     .host-name-big {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 800;
       line-height: 1.1;
@@ -795,7 +997,7 @@
       text-align: center;
     }
     .hstat-num {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.9rem;
       font-weight: 800;
       color: var(--accent);
@@ -815,10 +1017,10 @@
       margin: 60px 0 48px;
     }
     .proof-card {
-      padding: 36px 32px;
+      padding: 28px 24px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
       transition: border-color 0.3s, transform 0.3s;
       display: flex;
       flex-direction: column;
@@ -840,7 +1042,7 @@
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent2), var(--accent));
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1rem;
       flex-shrink: 0;
@@ -849,10 +1051,10 @@
     .proof-role { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
 
     .powered-banner {
-      padding: 40px 48px;
-      background: linear-gradient(135deg, rgba(0,185,255,0.06), rgba(124,58,255,0.06));
+      padding: 32px 40px;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       gap: 40px;
@@ -891,13 +1093,10 @@
     }
     .powered-brand strong {
       display: block;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
       margin-bottom: 3px;
     }
     .powered-brand span {
@@ -918,10 +1117,10 @@
     ═══════════════════════════════ */
     .scarcity-section { background: var(--bg); }
     .scarcity-inner {
-      background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(0,185,255,0.08));
-      border: 1px solid rgba(124,58,255,0.3);
-      border-radius: 28px;
-      padding: 80px;
+      background: linear-gradient(165deg, rgba(14, 22, 44, 0.9), rgba(10, 16, 34, 0.95));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 64px 56px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -975,9 +1174,11 @@
     ═══════════════════════════════ */
     .cta-section {
       position: relative;
-      padding: 130px 7%;
+      padding: 100px 6%;
       overflow: hidden;
-      background: linear-gradient(135deg, #0e0a2e 0%, #081a2f 100%);
+      background: linear-gradient(165deg, #0c1428 0%, #0a1022 50%, #0d1830 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
     .cta-bg-glow {
       position: absolute;
@@ -1004,20 +1205,20 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 22px 64px;
+      padding: 16px 36px;
       background: #fff;
-      color: var(--accent2);
+      color: #1e1b4b;
       border: none;
-      border-radius: 60px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 8px 50px rgba(0,0,0,0.4);
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-white:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 60px rgba(0,0,0,0.5); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(0,0,0,0.45); }
 
     /* ═══════════════════════════════
        FAQ
@@ -1038,7 +1239,7 @@
     }
     .faq-left {
       position: sticky;
-      top: 110px;
+      top: calc(var(--announcement-bar-height) + 88px);
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -1051,7 +1252,7 @@
       margin-bottom: 20px;
     }
     .faq-left-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 10px;
@@ -1074,9 +1275,9 @@
       padding: 14px 24px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border: none;
-      border-radius: 50px;
+      border-radius: var(--radius-sm);
       color: #fff;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.95rem;
       cursor: pointer;
@@ -1107,7 +1308,7 @@
       background: none;
       border: none;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-body);
       font-size: 1.05rem;
       font-weight: 600;
       cursor: pointer;
@@ -1161,7 +1362,7 @@
       margin-bottom: 24px;
     }
     .final-headline {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(2.2rem, 5.5vw, 4.5rem);
       font-weight: 800;
       line-height: 1.1;
@@ -1187,7 +1388,7 @@
       padding: 56px 7%;
     }
     .footer-inner {
-      max-width: 1100px;
+      max-width: var(--max-content);
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -1196,7 +1397,7 @@
       gap: 24px;
     }
     .footer-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: 1.5rem;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -1213,9 +1414,9 @@
       gap: 8px;
       padding: 12px 24px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 50px;
+      border-radius: var(--radius-sm);
       color: #fff;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.9rem;
       text-decoration: none;
@@ -1224,7 +1425,7 @@
     }
     .footer-cta a:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(0,185,255,0.45); }
     .footer-bottom {
-      max-width: 1100px;
+      max-width: var(--max-content);
       margin: 32px auto 0;
       padding-top: 24px;
       border-top: 1px solid var(--border);
@@ -1253,36 +1454,131 @@
     .d5 { transition-delay: 0.5s; }
 
     /* ── REGISTER SECTION ── */
-    .register-section { background: var(--surface); }
+    .register-section {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0, 185, 255, 0.07), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 80%, rgba(124, 58, 255, 0.08), transparent 50%),
+        var(--surface);
+      position: relative;
+    }
+    .register-section::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 185, 255, 0.25), transparent);
+      pointer-events: none;
+    }
     .register-wrap {
       display: grid;
-      grid-template-columns: 1fr 520px;
-      gap: 72px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      gap: clamp(40px, 5vw, 72px);
+      align-items: start;
     }
-    .register-left h2 { margin-bottom: 16px; }
-    .register-left p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
-    .register-perks { display: flex; flex-direction: column; gap: 14px; }
+    .register-left { padding-top: 8px; }
+    .register-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .register-left h2 { margin-bottom: 16px; line-height: 1.15; }
+    .register-lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      max-width: 34em;
+    }
+    .register-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-bottom: 28px;
+      padding: 16px 18px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(0, 185, 255, 0.12);
+      border-radius: 14px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .register-meta strong { color: var(--text); font-weight: 600; }
+    .register-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .register-perks { display: flex; flex-direction: column; gap: 12px; }
     .register-perk {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 14px;
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 500;
+      line-height: 1.45;
+      color: rgba(234, 240, 255, 0.92);
     }
     .register-perk-icon {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: rgba(0, 185, 255, 0.12);
+      border: 1px solid rgba(0, 185, 255, 0.22);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       flex-shrink: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .register-trust {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .register-trust code {
+      font-family: inherit;
+      font-size: 0.9em;
+      color: var(--text);
+      background: rgba(0, 185, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 6px;
     }
     .register-form-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
+      position: relative;
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      background: linear-gradient(145deg, rgba(11, 18, 40, 0.98), rgba(7, 11, 26, 0.99));
+      border: 1px solid rgba(0, 185, 255, 0.18);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 24px 56px rgba(0, 0, 0, 0.45),
+        0 0 80px rgba(0, 185, 255, 0.06);
+    }
+    .register-form-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .register-form-head {
+      padding: 22px 24px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .register-form-head-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .register-form-head-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     /* ── HAMBURGER NAV ── */
@@ -1309,8 +1605,9 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 65px; left: 0; right: 0;
-      background: rgba(3,5,14,0.98);
+      top: calc(var(--announcement-bar-height) + 57px);
+      left: 0; right: 0;
+      background: rgba(5, 8, 22, 0.98);
       backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
       padding: 24px 5%;
@@ -1333,9 +1630,9 @@
       justify-content: center;
       padding: 14px 28px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 50px;
+      border-radius: var(--radius-sm);
       color: #fff;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1rem;
       text-decoration: none;
@@ -1347,9 +1644,31 @@
     /* ═══════════════════════════════
        RESPONSIVE
     ═══════════════════════════════ */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-main { text-align: center; }
+      .hero-aside {
+        max-width: 420px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .hero-summary-card .event-pills { align-items: stretch; }
+      .urgency-bar {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      }
+      .hero-actions .btn-sub { text-align: center; }
+      .hero-countdown-wrap { padding-top: 36px; }
+    }
     @media (max-width: 1100px) {
-      .register-wrap { grid-template-columns: 1fr; gap: 56px; }
-      .register-form-box { max-width: 600px; margin: 0 auto; width: 100%; }
+      .register-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .register-form-box { max-width: 560px; margin: 0 auto; width: 100%; }
+      .register-left { text-align: left; }
     }
     @media (max-width: 1024px) {
       .host-wrapper { grid-template-columns: 1fr; gap: 60px; }
@@ -1365,7 +1684,7 @@
       section { padding: 80px 5%; }
       h1 { font-size: clamp(1.9rem, 7vw, 3rem); }
       h2 { font-size: clamp(1.7rem, 5.5vw, 2.4rem); }
-      .hero { padding: 120px 5% 70px; }
+      .hero { padding: calc(var(--announcement-bar-height) + 4.5rem) 5% 70px; }
       .pain-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
       .diff-grid { grid-template-columns: 1fr 1fr; }
@@ -1396,6 +1715,12 @@
       .footer-inner { flex-direction: column; text-align: center; gap: 20px; }
       .footer-info { order: -1; }
     }
+    @media (max-width: 640px) {
+      :root { --announcement-bar-height: 78px; }
+      .announcement-bar { padding: 10px 4%; align-items: flex-start; }
+      .announcement-bar-inner { justify-content: flex-start; text-align: left; }
+      .announcement-bar-text { font-size: 0.76rem; max-width: 100%; }
+    }
     @media (max-width: 600px) {
       .diff-grid { grid-template-columns: 1fr; }
       .host-stats-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -1407,7 +1732,7 @@
     }
     @media (max-width: 480px) {
       section { padding: 70px 4%; }
-      .hero { padding: 110px 4% 60px; }
+      .hero { padding: calc(var(--announcement-bar-height) + 4rem) 4% 60px; }
       .btn-primary { padding: 16px 28px; font-size: 0.95rem; }
       .btn-white { padding: 16px 28px; font-size: 0.95rem; }
       .pill { font-size: 0.82rem; padding: 10px 14px; gap: 7px; }
@@ -1428,6 +1753,8 @@
       .final-headline { font-size: clamp(1.8rem, 7vw, 2.8rem); }
       .footer-bottom p { font-size: 0.75rem; }
       .register-wrap { gap: 40px; }
+      .register-meta { flex-direction: column; gap: 8px; }
+      .register-form-head { padding-left: 20px; padding-right: 20px; }
     }
   </style>
 
@@ -1447,17 +1774,14 @@
   #SIGNUP_PAGE {
     background: transparent !important;
     padding: 0 !important;
-    font-family: 'DM Sans', sans-serif !important;
-    color: #eaf0ff !important;
+    font-family: var(--font-body) !important;
+    color: #f0f4fc !important;
   }
 
-  /* ── Logo block ── */
-  #imgBlock {
-    width: 100% !important;
-    padding: 28px 32px 0 !important;
-    text-align: left !important;
-  }
-  #iframeImg { width: 80px !important; height: auto !important; }
+  /* ── Logo + duplicate title (hidden — we use page-level register header) ── */
+  #imgBlock { display: none !important; }
+  #iframeImg { display: none !important; }
+  #SIGNUP_HEADING { display: none !important; }
 
   /* ── Form container ── */
   #signupMainDiv {
@@ -1471,7 +1795,7 @@
   #SIGNUP_HEADING {
     background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
     color: #fff !important;
-    font-family: 'Syne', sans-serif !important;
+    font-family: var(--font-display) !important;
     font-size: 1.35rem !important;
     font-weight: 800 !important;
     margin: 0 !important;
@@ -1482,8 +1806,8 @@
 
   /* ── Body area ── */
   #SIGNUP_BODY {
-    background: #0b1228 !important;
-    padding: 28px 32px !important;
+    background: transparent !important;
+    padding: 8px 24px 28px !important;
     text-align: left !important;
     font-size: 0.95rem !important;
     color: #eaf0ff !important;
@@ -1492,22 +1816,23 @@
 
   /* ── Description text ── */
   #SIGNUP_DESCRIPTION {
-    color: #6e829e !important;
+    color: #8b9ab8 !important;
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
     margin-bottom: 20px !important;
   }
 
-  /* ── Error message ── */
+  /* ── Error message (Zoho toggles display via inline style) ── */
   #errorMsgDiv {
     display: none;
-    background: rgba(210,0,0,0.12) !important;
-    border: 1px solid rgba(210,0,0,0.35) !important;
-    color: #ff6b6b !important;
-    border-radius: 8px !important;
-    padding: 10px 14px !important;
+    background: rgba(210,0,0,0.14) !important;
+    border: 1px solid rgba(255, 100, 100, 0.4) !important;
+    color: #ffb4b4 !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
     font-size: 0.88rem !important;
     margin-bottom: 16px !important;
+    line-height: 1.45 !important;
   }
 
   /* ── Field rows ── */
@@ -1528,7 +1853,7 @@
     font-size: 0.88rem !important;
     font-weight: 600 !important;
     color: #b0c0d8 !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: var(--font-body) !important;
     margin: 0 !important;
   }
   [name="SIGNUP_REQUIRED"] { color: #00b9ff !important; }
@@ -1541,15 +1866,16 @@
     min-width: unset !important;
   }
   .zcinputbox input[type="text"],
-  .zcinputbox input[type="email"] {
+  .zcinputbox input[type="email"],
+  .zcinputbox input[type="tel"] {
     width: 100% !important;
     height: 46px !important;
     padding: 0 14px !important;
-    background: #070b1a !important;
+    background: #0e162c !important;
     border: 1px solid rgba(0,185,255,0.2) !important;
     border-radius: 10px !important;
     color: #eaf0ff !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: var(--font-body) !important;
     font-size: 0.95rem !important;
     outline: none !important;
     transition: border-color 0.2s, box-shadow 0.2s !important;
@@ -1563,31 +1889,50 @@
   /* ── Captcha section ── */
   #captchaOld {
     padding: 0 !important;
-    margin: 8px 0 16px !important;
+    margin: 12px 0 18px !important;
   }
   #captchaParent {
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .zc-captcha-label {
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #8a9ab8 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   #captchaDiv {
-    background: #070b1a !important;
+    background: #0e162c !important;
     border: 1px solid rgba(0,185,255,0.2) !important;
     border-radius: 10px !important;
-    padding: 14px !important;
+    padding: 12px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    margin-bottom: 8px !important;
+    min-height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
+  #captchaDiv img { max-width: 100% !important; height: auto !important; display: block !important; }
   #captchaText {
     width: 100% !important;
-    height: 46px !important;
+    height: 48px !important;
     padding: 0 14px !important;
-    background: #070b1a !important;
+    background: #0e162c !important;
     border: 1px solid rgba(0,185,255,0.2) !important;
     border-radius: 10px !important;
     color: #eaf0ff !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: var(--font-body) !important;
     font-size: 0.95rem !important;
     outline: none !important;
     margin-top: 0 !important;
@@ -1595,23 +1940,26 @@
   #captchaText:focus { border-color: #00b9ff !important; box-shadow: 0 0 0 3px rgba(0,185,255,0.12) !important; }
   #captchaText::placeholder { color: #3a4f6a !important; }
   #relCaptcha {
-    float: right !important;
-    margin: 0 0 6px 0 !important;
+    flex-shrink: 0 !important;
     cursor: pointer !important;
-    opacity: 0.6 !important;
+    opacity: 0.75 !important;
     transition: opacity 0.2s !important;
-    width: 20px !important;
-    height: 20px !important;
+    width: 22px !important;
+    height: 22px !important;
+    padding: 4px !important;
+    border-radius: 8px !important;
+    background: rgba(0,185,255,0.1) !important;
+    border: 1px solid rgba(0,185,255,0.2) !important;
   }
   #relCaptcha:hover { opacity: 1 !important; }
-  #capRequired { color: #00b9ff !important; float: right !important; margin-top: -32px !important; font-size: 0.9rem !important; }
+  #capRequired { color: #00b9ff !important; font-size: 0.85rem !important; margin-left: 4px !important; }
 
   /* ── Required fields note ── */
   #REQUIRED_FIELD_TEXT {
-    color: #6e829e !important;
+    color: #8b9ab8 !important;
     font-size: 0.82rem !important;
     padding: 10px 0 !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: var(--font-body) !important;
   }
 
   /* ── Submit button ── */
@@ -1621,9 +1969,9 @@
     padding: 16px !important;
     background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
     border: none !important;
-    border-radius: 12px !important;
+    border-radius: 8px !important;
     color: #fff !important;
-    font-family: 'Syne', sans-serif !important;
+    font-family: var(--font-display) !important;
     font-weight: 700 !important;
     font-size: 1rem !important;
     cursor: pointer !important;
@@ -1638,13 +1986,14 @@
 
   /* ── Privacy note ── */
   #privacyNotes {
-    padding: 16px 32px 24px !important;
-    background: #0b1228 !important;
+    padding: 18px 24px 22px !important;
+    background: rgba(14, 22, 44, 0.5) !important;
     height: auto !important;
     font-size: 0.82rem !important;
-    color: #4a6080 !important;
-    font-family: 'DM Sans', sans-serif !important;
-    border-top: 1px solid rgba(0,185,255,0.08) !important;
+    line-height: 1.55 !important;
+    color: #6e829e !important;
+    font-family: var(--font-body) !important;
+    border-top: 1px solid rgba(0,185,255,0.1) !important;
     margin: 0 !important;
   }
 
@@ -1657,7 +2006,7 @@
     margin: 0 0 16px !important;
     color: #00e58a !important;
   }
-  #signupSuccessMsg { color: #00e58a !important; font-family: 'DM Sans',sans-serif !important; font-size: 0.95rem !important; }
+  #signupSuccessMsg { color: #00e58a !important; font-family: var(--font-body) !important; font-size: 0.95rem !important; }
 
   /* ── Success signup message box positioning ── */
   #Zc_SignupSuccess { position: relative !important; margin-left: 0 !important; width: 100% !important; }
@@ -1674,14 +2023,27 @@
   [style*="border-bottom:#ebebeb"] { display: none !important; }
 
   /* ── Zoho success popup panel ── */
-  #zcOptinSuccessPanel { color: #eaf0ff; font-family: 'DM Sans',sans-serif; }
+  #zcOptinSuccessPanel { color: #eaf0ff; font-family: var(--font-body); }
   </style>
 </head>
 <body>
 
+<div class="announcement-bar" role="region" aria-label="Event announcement">
+  <div class="announcement-bar-inner">
+    <span class="announcement-bar-badge">Free event</span>
+    <p class="announcement-bar-text">
+      <strong>Physical</strong> at Eko Hotel — complimentary seats capped at <strong>100</strong> (selection) ·
+      Everyone else attends <strong>online</strong> at no cost.
+    </p>
+  </div>
+</div>
+
 <!-- ═══════════ NAVBAR ═══════════ -->
 <nav id="navbar">
-  <span class="nav-logo">AI BUSINESS OWNERS Conference</span>
+  <a href="#home" class="nav-brand">
+    <span class="nav-mark" aria-hidden="true">ABO</span>
+    <span class="nav-logo">AI Business Owners<span>Conference</span></span>
+  </a>
   <div class="nav-right">
     <a href="#pain" class="nav-link">About</a>
     <a href="#host" class="nav-link">Speaker</a>
@@ -1708,37 +2070,49 @@
   <div class="orb orb-3"></div>
   <div class="particles" id="particles"></div>
 
-  <div class="live-badge">
-    <span class="live-dot"></span>
-    Registration Now Open — Limited Spots
+  <div class="hero-inner">
+    <div class="hero-main">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        Registration Now Open — Limited Spots
+      </div>
+
+      <h1>
+        Unlock How Smart Business Owners<br/>Are Using AI to
+        <span class="h1-accent"> 10X Their Results</span><br/>
+        — <span class="h1-gold">Without Hiring More Staff</span>
+      </h1>
+
+      <p class="hero-sub">
+        Join a powerful, hands-on session where you'll learn exactly how to integrate AI into your business for growth, automation, and profit — starting immediately.
+      </p>
+
+      <div class="urgency-bar">
+        ⚠️ &nbsp; Free event: <strong>100 in-person seats</strong> at Eko Hotel (physical, by selection). Additional attendees join <strong>online</strong> at no cost — all subject to selection.
+      </div>
+
+      <div class="hero-actions">
+        <a href="#register" class="btn-primary">
+          Apply Now to Secure Your Spot
+        </a>
+        <span class="btn-sub">Takes less than 60 seconds · No credit card required</span>
+      </div>
+    </div>
+
+    <aside class="hero-aside" aria-label="Event summary">
+      <div class="hero-summary-card">
+        <h3>Event details</h3>
+        <div class="event-pills">
+          <div class="pill"><span class="pill-icon">📍</span> Eko Hotel, Lagos</div>
+          <div class="pill"><span class="pill-icon">📅</span> Saturday, 25th April 2026</div>
+          <div class="pill"><span class="pill-icon">⏰</span> 8:00 AM – 12:00 PM</div>
+          <div class="pill"><span class="pill-icon">🎟️</span> FREE — 100 physical · Unlimited online</div>
+        </div>
+      </div>
+    </aside>
   </div>
 
-  <h1>
-    Unlock How Smart Business Owners<br/>Are Using AI to
-    <span class="h1-accent"> 10X Their Results</span><br/>
-    — <span class="h1-gold">Without Hiring More Staff</span>
-  </h1>
-
-  <p class="hero-sub">
-    Join a powerful, hands-on session where you'll learn exactly how to integrate AI into your business for growth, automation, and profit — starting immediately.
-  </p>
-
-  <div class="event-pills">
-    <div class="pill"><span class="pill-icon">📍</span> Eko Hotel, Lagos</div>
-    <div class="pill"><span class="pill-icon">📅</span> Saturday, 25th April 2025</div>
-    <div class="pill"><span class="pill-icon">⏰</span> 8:00 AM – 12:00 PM</div>
-    <div class="pill"><span class="pill-icon">🎟️</span> FREE — By Selection</div>
-  </div>
-
-  <div class="urgency-bar">
-    ⚠️ &nbsp; Attendance is FREE but strictly by selection — Limited seats available. Once filled, registration closes permanently.
-  </div>
-
-  <a href="#register" class="btn-primary">
-    👉 Apply Now to Secure Your Spot
-  </a>
-  <span class="btn-sub">Takes less than 60 seconds · No credit card required</span>
-
+  <div class="hero-countdown-wrap">
   <div class="countdown-wrap" id="countdown-wrap">
     <span class="countdown-label" id="countdown-label">Event starts in</span>
     <div class="countdown" id="countdown-timer">
@@ -1757,6 +2131,7 @@
       This event has concluded. Stay tuned for the next one.
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
@@ -1768,7 +2143,8 @@
     <div class="marquee-item"><span class="marquee-dot"></span> 10X Growth</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Business Scaling</div>
     <div class="marquee-item"><span class="marquee-dot"></span> No Tech Skills Needed</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Free Event</div>
+    <div class="marquee-item"><span class="marquee-dot"></span> 100 Free In-Person Seats</div>
+    <div class="marquee-item"><span class="marquee-dot"></span> Unlimited Online — Free</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Eko Hotel · 25th April</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Dr. Stephen Akintayo</div>
     <!-- duplicate for seamless loop -->
@@ -1778,7 +2154,8 @@
     <div class="marquee-item"><span class="marquee-dot"></span> 10X Growth</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Business Scaling</div>
     <div class="marquee-item"><span class="marquee-dot"></span> No Tech Skills Needed</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Free Event</div>
+    <div class="marquee-item"><span class="marquee-dot"></span> 100 Free In-Person Seats</div>
+    <div class="marquee-item"><span class="marquee-dot"></span> Unlimited Online — Free</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Eko Hotel · 25th April</div>
     <div class="marquee-item"><span class="marquee-dot"></span> Dr. Stephen Akintayo</div>
   </div>
@@ -2035,7 +2412,7 @@
 <section class="scarcity-section" id="scarcity">
   <div class="container">
     <div class="scarcity-inner reveal">
-      <span class="section-tag">⚠️ Limited Access</span>
+      <span class="section-tag tag-centered">⚠️ Limited Access</span>
       <h2 style="margin-top: 24px;">This Is <span class="text-accent">Not</span> an Open Event</h2>
       <p>Due to limited seating and the quality of attendees we want to maintain, registration is strictly by selection. Once slots are filled, registration closes permanently — no exceptions.</p>
 
@@ -2061,7 +2438,7 @@
 <section class="cta-section" id="apply-cta">
   <div class="cta-bg-glow"></div>
   <div class="cta-inner reveal">
-    <span class="section-tag" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff;">🚀 Don't Miss Out</span>
+    <span class="section-tag tag-centered cta-eyebrow">🚀 Don't Miss Out</span>
     <h2 style="margin-top: 24px;">Don't Wait Until Your<br/>Competitors Leave You Behind</h2>
     <p>Apply now and secure your chance to attend this exclusive AI masterclass conference — completely free.</p>
     <a href="#register" class="btn-white">
@@ -2076,7 +2453,7 @@
 
     <!-- Section header — centred above both columns -->
     <div class="faq-header reveal">
-      <span class="section-tag">❓ Frequently Asked Questions</span>
+      <span class="section-tag tag-centered">❓ Frequently Asked Questions</span>
       <h2>Everything You Need<br/>to <span class="text-accent">Know</span></h2>
       <p>Here are the most common questions people ask before applying. Don't see yours? Just apply and we'll reach out personally.</p>
     </div>
@@ -2088,10 +2465,10 @@
         <div class="faq-left-card">
           <h3>Quick Facts</h3>
           <p style="color:var(--muted); font-size:0.92rem; line-height:1.75; margin:0;">
-            📅 &nbsp;Saturday, 25th April 2025<br/>
+            📅 &nbsp;Saturday, 25th April 2026<br/>
             ⏰ &nbsp;8:00 AM – 12:00 PM<br/>
             📍 &nbsp;Eko Hotel, Lagos<br/>
-            🎟️ &nbsp;100% Free — By Selection<br/>
+            🎟️ &nbsp;100% Free — 100 physical seats + unlimited online (by selection)<br/>
             👤 &nbsp;Host: Dr. Stephen Akintayo
           </p>
         </div>
@@ -2138,6 +2515,13 @@
           </button>
           <div class="faq-a">The event is at Eko Hotel, Lagos. The specific hall and parking information will be shared with confirmed attendees via email after selection.</div>
         </div>
+        <div class="faq-item reveal d5">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            I don’t have a company website — can I still apply?
+            <span class="faq-chevron">▾</span>
+          </button>
+          <div class="faq-a">Yes. Use your LinkedIn profile URL or any public page in the “website” field. If you have no online presence, enter N/A — we still review every application.</div>
+        </div>
         <div class="faq-item reveal" style="transition-delay:0.6s">
           <button class="faq-q" onclick="toggleFaq(this)">
             How soon will I hear back after applying?
@@ -2169,45 +2553,32 @@
   </div>
 </section>
 
-<!-- ═══════════ FOOTER ═══════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">ABO Conference</div>
-    <div class="footer-info">
-      <p>AI for Business Owners · Saturday, 25th April 2025</p>
-      <p>Eko Hotel, Lagos · 8:00 AM – 12:00 PM</p>
-      <p style="margin-top:8px; font-size:0.82rem; color: var(--muted);">Powered by the Stephen Akintayo Foundation</p>
-    </div>
-    <div class="footer-cta">
-      <a href="#register">Apply Now — Free →</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 ABO Conference. All rights reserved. | Powered by Stephen Akintayo Foundation</p>
-  </div>
-</footer>
-
-<!-- ═══════════ REGISTER SECTION ═══════════ -->
+<!-- ═══════════ REGISTER ═══════════ -->
 <section class="register-section" id="register">
   <div class="container">
     <div class="register-wrap">
 
-      <!-- Left: persuasion copy -->
       <div class="register-left reveal-left">
-        <span class="section-tag">📋 Secure Your Spot</span>
-        <h2 style="margin-top:16px;">Register Now —<br/><span class="text-accent">It's 100% Free</span></h2>
-        <p>Fill in the form to apply for your seat. Selected applicants will receive a confirmation email within 24–48 hours. Spots are strictly limited.</p>
-        <div class="register-perks">
-          <div class="register-perk"><div class="register-perk-icon">✓</div> Free to attend — by selection only</div>
-          <div class="register-perk"><div class="register-perk-icon">✓</div> Confirmation email within 48 hours</div>
-          <div class="register-perk"><div class="register-perk-icon">✓</div> Saturday, 25th April · Eko Hotel, Lagos</div>
-          <div class="register-perk"><div class="register-perk-icon">✓</div> 8:00 AM – 12:00 PM · 4-hour masterclass</div>
-          <div class="register-perk"><div class="register-perk-icon">✓</div> Host: Dr. Stephen Akintayo</div>
+        <p class="register-kicker">Application</p>
+        <h2 style="margin-top:4px;">Request your seat</h2>
+        <p class="register-lead">Short form, reviewed by our team. If you’re selected, we’ll confirm by email within 24–48 hours.</p>
+        <div class="register-meta">
+          <span><strong>When</strong> Sat 25 Apr 2026 · 8:00–12:00</span>
+          <span><strong>Where</strong> Eko Hotel, Lagos</span>
         </div>
+        <div class="register-perks">
+          <div class="register-perk"><div class="register-perk-icon">1</div> Free to attend — admission is by selection only</div>
+          <div class="register-perk"><div class="register-perk-icon">2</div> Same-day email acknowledgement; decision within 24–48 hours</div>
+          <div class="register-perk"><div class="register-perk-icon">3</div> Four-hour masterclass with Dr. Stephen Akintayo</div>
+        </div>
+        <p class="register-trust">No company website? Use a LinkedIn profile URL or any public page. If you have no web presence, enter <code>N/A</code> — we still review every application.</p>
       </div>
 
-      <!-- Right: Zoho form -->
       <div class="register-form-box reveal-right">
+        <div class="register-form-head">
+          <div class="register-form-head-title">Apply in about two minutes</div>
+          <div class="register-form-head-sub">Use an email you check daily — that’s where we’ll send your result.</div>
+        </div>
         <!--Zoho Campaigns Web-Optin Form Starts Here-->
         <div id="sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a" data-type="signupform">
           <div id="customForm">
@@ -2219,7 +2590,7 @@
             <div name="SIGNUP_PAGE" class="large_form_1_css" id="SIGNUP_PAGE">
               <div name="" changeid="" changename="">
                 <div id="imgBlock" name="LOGO_DIV" logo="true">
-                  <img valign="middle" src="https://stratus.campaign-image.com/images/136501c1a_509.png" name="LOGO" id="iframeImg">
+                  <img valign="middle" src="https://stratus.campaign-image.com/images/136501c1a_509.png" name="LOGO" id="iframeImg" alt="">
                 </div>
               </div>
               <div id="signupMainDiv" name="SIGNUPFORM" changeid="SIGNUPFORM" changename="SIGNUPFORM">
@@ -2228,7 +2599,7 @@
                     <div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color:white;padding:3px;border:3px solid rgb(194,225,154);margin-top:10px;margin-bottom:10px;word-break:break-all">
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tbody><tr>
-                          <td width="10%"><img class="successicon" src="https://zvqjc-zgpl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle"></td>
+                          <td width="10%"><img class="successicon" src="https://zvqjc-zgpl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle" alt=""></td>
                           <td><span id="signupSuccessMsg">&nbsp;&nbsp;Thank you for Signing Up</span></td>
                         </tr></tbody>
                       </table>
@@ -2243,26 +2614,29 @@
                           <div id="errorMsgDiv">&nbsp;&nbsp;Please correct the marked field(s) below.</div>
                           <div>
                             <div name="fieldsdivSf" class="zcsffieldsdiv">
-                              <div><div><div name="SIGNUP_FORM_LABEL">Contact Email&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="CONTACT_EMAIL" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="email"><span style="display:none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">First Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="FIRSTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text"><span style="display:none" id="dt_FIRSTNAME">1,true,1,First Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Last Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="LASTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text"><span style="display:none" id="dt_LASTNAME">1,true,1,Last Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Phone&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="PHONE" changeitem="SIGNUP_FORM_FIELD" maxlength="20" type="text"><span style="display:none" id="dt_PHONE">1,true,1,Phone,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Company Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="COMPANYNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text"><span style="display:none" id="dt_COMPANYNAME">1,true,1,Company Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Website Address&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="WEBSITE" changeitem="SIGNUP_FORM_FIELD" maxlength="250" type="text"><span style="display:none" id="dt_WEBSITE">1,true,1,Website Address,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Job Title&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="JOB_TITLE" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text"><span style="display:none" id="dt_JOB_TITLE">1,true,1,Job Title,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Contact Email&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="CONTACT_EMAIL" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="email" autocomplete="email" inputmode="email"><span style="display:none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">First Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="FIRSTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="given-name"><span style="display:none" id="dt_FIRSTNAME">1,true,1,First Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Last Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="LASTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text" autocomplete="family-name"><span style="display:none" id="dt_LASTNAME">1,true,1,Last Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Phone&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="PHONE" changeitem="SIGNUP_FORM_FIELD" maxlength="20" type="tel" autocomplete="tel" inputmode="tel"><span style="display:none" id="dt_PHONE">1,true,1,Phone,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Company Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="COMPANYNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="organization"><span style="display:none" id="dt_COMPANYNAME">1,true,1,Company Name,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Website or public profile&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="WEBSITE" changeitem="SIGNUP_FORM_FIELD" maxlength="250" type="text" autocomplete="url" placeholder="https://… , LinkedIn, or N/A"><span style="display:none" id="dt_WEBSITE">1,true,1,Website Address,2</span></div></div><div></div></div>
+                              <div><div><div name="SIGNUP_FORM_LABEL">Job Title&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="JOB_TITLE" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text" autocomplete="organization-title"><span style="display:none" id="dt_JOB_TITLE">1,true,1,Job Title,2</span></div></div><div></div></div>
                             </div>
                             <div style="padding:10px 0px 10px 0px;" id="captchaOld" class="recaptcha" name="captchaContainer">
                               <div><div id="captchaParent">
-                                <img src="//campaigns.zoho.com/images/refresh_icon.png" onclick="loadCaptcha('https://campaigns.zoho.com/campaigns/CaptchaVerify.zc?mode=generate',this,'#sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a');" id="relCaptcha">
+                                <div class="zc-captcha-label">
+                                  <span>Security check <span name="SIGNUP_REQUIRED" id="capRequired">*</span></span>
+                                  <img src="https://campaigns.zoho.com/images/refresh_icon.png" alt="Show new code" title="New code" width="20" height="20" onclick="loadCaptcha('https://campaigns.zoho.com/campaigns/CaptchaVerify.zc?mode=generate',this,'#sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a');" id="relCaptcha">
+                                </div>
                                 <div id="captchaDiv" captcha="true" name=""></div>
-                                <input placeholder="Enter Captcha" id="captchaText" name="captchaText" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text">
-                                <span name="SIGNUP_REQUIRED" id="capRequired">*</span>
+                                <label for="captchaText" class="sr-only">Enter the characters shown in the image above</label>
+                                <input placeholder="Type the characters from the image" id="captchaText" name="captchaText" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text">
                               </div></div>
                             </div>
                             <input type="hidden" id="secretid" value="6LdNeDUUAAAAAG5l7cJfv1AA5OKLslkrOa_xXxLs">
-                            <div id="REQUIRED_FIELD_TEXT" changetype="REQUIRED_FIELD_TEXT" name="SIGNUP_REQUIRED">*Required Fields</div>
+                            <div id="REQUIRED_FIELD_TEXT" changetype="REQUIRED_FIELD_TEXT" name="SIGNUP_REQUIRED">*Required fields</div>
                             <div>
-                              <input type="button" action="Save" id="zcWebOptin" name="SIGNUP_SUBMIT_BUTTON" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" value="Submit Application">
+                              <input type="button" action="Save" id="zcWebOptin" name="SIGNUP_SUBMIT_BUTTON" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" value="Submit application">
                             </div>
                           </div>
                         </div>
@@ -2288,13 +2662,13 @@
                   </form>
                 </div>
                 <div id="privacyNotes" identity="privacyNotes">
-                  <span>🔒 Your data is 100% confidential and will never be shared.</span>
+                  <span>Your details are only used to process this application and contact you about ABO Conference. We don’t sell or share your data.</span>
                 </div>
               </div>
             </div>
             <input type="hidden" id="isCaptchaNeeded" value="true">
             <input type="hidden" id="superAdminCap" value="0">
-            <img src="https://zvqjc-zgpl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)" style="display:none;">
+            <img src="https://zvqjc-zgpl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)" style="display:none;" alt="">
           </div>
         </div>
         <!--Zoho Campaigns Web-Optin Form Ends Here-->
@@ -2303,9 +2677,30 @@
   </div><!-- /.container -->
 </section>
 
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABO Conference</div>
+    <div class="footer-info">
+      <p>AI for Business Owners · Saturday, 25th April 2026</p>
+      <p>Eko Hotel, Lagos · 8:00 AM – 12:00 PM</p>
+      <p style="margin-top:8px; font-size:0.82rem; color: var(--muted);">Powered by the Stephen Akintayo Foundation</p>
+    </div>
+    <div class="footer-cta">
+      <a href="#register">Apply Now — Free →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ABO Conference. All rights reserved. | Powered by Stephen Akintayo Foundation</p>
+  </div>
+</footer>
+
+<!-- Zoho submits into this frame (avoids blocked pop-ups / missing target) -->
+<iframe name="_zcSignup" id="zcSignupFrame" title="Registration response" style="display:none;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
+
 <!-- Zoho overlay + success popup (required by Zoho SDK) -->
 <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align:center;background-color:rgba(0,0,0,0.75);z-index:1000;position:fixed;width:100%;top:0px;left:0px;height:100%;"></div>
-<div id="zcOptinSuccessPopup" style="display:none;z-index:9999;width:min(520px,92vw);top:50%;left:50%;transform:translate(-50%,-50%);position:fixed;background:#0d1628;border:1px solid rgba(0,185,255,0.25);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.7);padding:40px 36px;">
+<div id="zcOptinSuccessPopup" style="display:none;z-index:9999;width:min(520px,92vw);top:50%;left:50%;transform:translate(-50%,-50%);position:fixed;background:#0e162c;border:1px solid rgba(0,185,255,0.22);border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5);padding:40px 36px;">
   <span style="position:absolute;top:14px;right:16px;z-index:99999;cursor:pointer;opacity:0.5;font-size:1.4rem;color:#eaf0ff;line-height:1;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none';document.getElementById('zcOptinOverLay').style.display='none';">✕</span>
   <div id="zcOptinSuccessPanel"></div>
 </div>
@@ -2349,6 +2744,33 @@
   }, revealOpts);
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+  /* Zoho: hostname helps some Campaigns endpoints validate embedded forms */
+  (function () {
+    var dd = document.getElementById('document_domain');
+    if (dd && !dd.value) {
+      try { dd.value = location.hostname || ''; } catch (e) {}
+    }
+  })();
+
+  /* Meta Pixel: fire Lead when Zoho success popup is shown */
+  (function () {
+    var popup = document.getElementById('zcOptinSuccessPopup');
+    if (!popup || typeof MutationObserver === 'undefined') return;
+    var fired = false;
+    function tryLead() {
+      if (fired) return;
+      var show = false;
+      try { show = window.getComputedStyle(popup).display !== 'none'; } catch (e) {}
+      if (show && typeof fbq === 'function') {
+        fired = true;
+        fbq('track', 'Lead');
+        mo.disconnect();
+      }
+    }
+    var mo = new MutationObserver(tryLead);
+    mo.observe(popup, { attributes: true, attributeFilter: ['style'] });
+  })();
 
   /* ── SEATS BAR ── */
   const seatObserver = new IntersectionObserver((entries) => {
@@ -2432,7 +2854,7 @@
   /* ── FLOATING PARTICLES ── */
   const container = document.getElementById('particles');
   const colors = ['#00b9ff', '#7c3aff', '#f5c842', '#00e58a'];
-  for (let i = 0; i < 28; i++) {
+  for (let i = 0; i < 16; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     p.style.left = Math.random() * 100 + '%';
@@ -2448,8 +2870,8 @@
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     nav.style.background = window.scrollY > 80
-      ? 'rgba(3,5,14,0.97)'
-      : 'rgba(3,5,14,0.75)';
+      ? 'rgba(5, 8, 22, 0.97)'
+      : 'rgba(5, 8, 22, 0.82)';
   });
 </script>
 </body>
