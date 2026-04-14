@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>AI for Business Owners Conference — ABO</title>
-  <meta name="description" content="Free AI masterclass for business owners at Eko Hotel, Lagos — Saturday 25 April 2026, 8:00 AM – 12:00 PM. Practical strategies with Dr. Stephen Akintayo. Apply for your seat." />
+  <meta name="description" content="Free AI masterclass for business owners at Eko Hotel, Lagos — Saturday 25 April 2026, 8:00 AM – 12:00 PM. Practical strategies with Dr. Stephen Akintayo." />
   <meta name="theme-color" content="#050816" />
   <meta property="og:title" content="AI for Business Owners Conference — ABO" />
   <meta property="og:description" content="Free AI masterclass for business owners. Eko Hotel, Lagos · 25 April 2026 · Selection-only seats. Hosted by Dr. Stephen Akintayo." />
@@ -1543,6 +1543,7 @@
         radial-gradient(ellipse 60% 40% at 100% 80%, rgba(124, 58, 255, 0.08), transparent 50%),
         var(--surface);
       position: relative;
+      scroll-margin-top: calc(var(--header-stack-height) + 16px);
     }
     .register-section::before {
       content: '';
@@ -1554,9 +1555,130 @@
     }
     .register-wrap {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 600px);
       gap: clamp(40px, 5vw, 72px);
       align-items: start;
+    }
+    .register-form-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(11, 18, 40, 0.98), rgba(7, 11, 26, 0.99));
+      border: 1px solid rgba(0, 185, 255, 0.18);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 24px 56px rgba(0, 0, 0, 0.45),
+        0 0 80px rgba(0, 185, 255, 0.06);
+    }
+    .register-form-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .register-form-head {
+      padding: 22px 24px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .register-form-head-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .register-form-head-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-bottom: 12px;
+    }
+    .register-quick-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0 24px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .register-quick-steps li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(234, 240, 255, 0.88);
+      background: rgba(0, 185, 255, 0.08);
+      border: 1px solid rgba(0, 185, 255, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      line-height: 1.3;
+    }
+    .register-quick-steps .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .register-form-tip {
+      padding: 0 24px 12px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.55;
+      position: relative;
+      z-index: 1;
+    }
+    .register-form-tip strong { color: rgba(234, 240, 255, 0.92); font-weight: 600; }
+    .register-form-open-tab {
+      padding: 0 24px 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .register-form-open-tab a {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 185, 255, 0.35);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .register-form-open-tab a:hover {
+      color: #5ed4ff;
+      border-bottom-color: rgba(94, 212, 255, 0.5);
+    }
+    #registration-form {
+      scroll-margin-top: calc(var(--header-stack-height) + 16px);
+    }
+    .register-form-iframe-wrap {
+      position: relative;
+      z-index: 1;
+      padding: 0 8px 20px;
+      line-height: 0;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    .register-zoho-iframe {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: min(900px, 82vh);
+      min-height: 560px;
+      border: none;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(0, 185, 255, 0.12);
     }
     .register-left { padding-top: 8px; }
     .register-kicker {
@@ -1610,60 +1732,6 @@
       color: var(--accent);
       font-weight: 800;
     }
-    .register-trust {
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .register-trust code {
-      font-family: inherit;
-      font-size: 0.9em;
-      color: var(--text);
-      background: rgba(0, 185, 255, 0.08);
-      padding: 2px 8px;
-      border-radius: 6px;
-    }
-    .register-form-box {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: linear-gradient(145deg, rgba(11, 18, 40, 0.98), rgba(7, 11, 26, 0.99));
-      border: 1px solid rgba(0, 185, 255, 0.18);
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.35),
-        0 24px 56px rgba(0, 0, 0, 0.45),
-        0 0 80px rgba(0, 185, 255, 0.06);
-    }
-    .register-form-box::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    }
-    .register-form-head {
-      padding: 22px 24px 0;
-      position: relative;
-      z-index: 1;
-    }
-    .register-form-head-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .register-form-head-sub {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
     /* ── HAMBURGER NAV ── */
     .hamburger {
       display: none;
@@ -1787,9 +1855,21 @@
       }
     }
     @media (max-width: 1100px) {
-      .register-wrap { grid-template-columns: 1fr; gap: 48px; }
-      .register-form-box { max-width: 560px; margin: 0 auto; width: 100%; }
-      .register-left { text-align: left; }
+      .register-wrap {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      /* Form first on phones/tablets — fewer scrolls to start registering */
+      .register-form-box {
+        order: -1;
+        max-width: min(560px, 100%);
+        margin: 0 auto;
+        width: 100%;
+      }
+      .register-left {
+        order: 1;
+        text-align: left;
+      }
     }
     @media (max-width: 1024px) {
       .host-wrapper { grid-template-columns: 1fr; gap: 60px; }
@@ -2001,301 +2081,16 @@
       .footer-bottom p { font-size: 0.75rem; }
       .register-wrap { gap: 40px; }
       .register-meta { flex-direction: column; gap: 8px; }
-      .register-form-head { padding-left: 20px; padding-right: 20px; }
+      .register-quick-steps { padding-left: 16px; padding-right: 16px; gap: 8px; }
+      .register-quick-steps li { font-size: 0.76rem; padding: 7px 12px; }
+      .register-form-tip,
+      .register-form-open-tab { padding-left: 16px; padding-right: 16px; }
+      .register-zoho-iframe {
+        min-height: 480px;
+        height: min(820px, 78vh);
+        border-radius: 10px;
+      }
     }
-  </style>
-
-  <!-- ═══ ZOHO CAMPAIGNS SDK ═══ -->
-  <script type="text/javascript" src="https://zvqjc-zgpl.maillist-manage.com/js/optin.min.js" onload="setupSF('sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a','ZCFORMVIEW',false,'acc',false,'2')"></script>
-  <script type="text/javascript">
-    function runOnFormSubmit_sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a(th){ };
-  </script>
-
-  <!-- ═══ ZOHO FORM — DARK THEME STYLING ═══ -->
-  <style>
-  /* ── Box-sizing reset required by Zoho ── */
-  #sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a #customForm *:not(.dateClass){-webkit-box-sizing:border-box!important;-moz-box-sizing:border-box!important;box-sizing:border-box!important;word-break:break-word;overflow-wrap:break-word;}
-  #sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a .dateClass{-webkit-box-sizing:unset!important;-moz-box-sizing:unset!important;box-sizing:unset!important;}
-
-  /* ── Page wrapper ── */
-  #SIGNUP_PAGE {
-    background: transparent !important;
-    padding: 0 !important;
-    font-family: var(--font-body) !important;
-    color: #f0f4fc !important;
-  }
-
-  /* ── Logo + duplicate title (hidden — we use page-level register header) ── */
-  #imgBlock { display: none !important; }
-  #iframeImg { display: none !important; }
-  #SIGNUP_HEADING { display: none !important; }
-
-  /* ── Form container ── */
-  #signupMainDiv {
-    width: 100% !important;
-    min-width: unset !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-  }
-
-  /* ── Heading ── */
-  #SIGNUP_HEADING {
-    background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
-    color: #fff !important;
-    font-family: var(--font-display) !important;
-    font-size: 1.35rem !important;
-    font-weight: 800 !important;
-    margin: 0 !important;
-    padding: 20px 32px !important;
-    border: none !important;
-    letter-spacing: -0.01em !important;
-  }
-
-  /* ── Body area ── */
-  #SIGNUP_BODY {
-    background: transparent !important;
-    padding: 8px 24px 28px !important;
-    text-align: left !important;
-    font-size: 0.95rem !important;
-    color: #eaf0ff !important;
-    opacity: 1 !important;
-  }
-
-  /* ── Description text ── */
-  #SIGNUP_DESCRIPTION {
-    color: #8b9ab8 !important;
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 20px !important;
-  }
-
-  /* ── Error message (Zoho toggles display via inline style) ── */
-  #errorMsgDiv {
-    display: none;
-    background: rgba(210,0,0,0.14) !important;
-    border: 1px solid rgba(255, 100, 100, 0.4) !important;
-    color: #ffb4b4 !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
-    font-size: 0.88rem !important;
-    margin-bottom: 16px !important;
-    line-height: 1.45 !important;
-  }
-
-  /* ── Field rows ── */
-  .zcsffieldsdiv > div {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 6px !important;
-    margin-bottom: 14px !important;
-    float: none !important;
-    clear: both !important;
-    padding: 0 !important;
-  }
-
-  /* ── Labels ── */
-  [name="SIGNUP_FORM_LABEL"] {
-    width: 100% !important;
-    float: none !important;
-    font-size: 0.88rem !important;
-    font-weight: 600 !important;
-    color: #b0c0d8 !important;
-    font-family: var(--font-body) !important;
-    margin: 0 !important;
-  }
-  [name="SIGNUP_REQUIRED"] { color: #00b9ff !important; }
-
-  /* ── Input boxes ── */
-  .zcinputbox {
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
-    min-width: unset !important;
-  }
-  .zcinputbox input[type="text"],
-  .zcinputbox input[type="email"],
-  .zcinputbox input[type="tel"] {
-    width: 100% !important;
-    height: 46px !important;
-    padding: 0 14px !important;
-    background: #0e162c !important;
-    border: 1px solid rgba(0,185,255,0.2) !important;
-    border-radius: 10px !important;
-    color: #eaf0ff !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.95rem !important;
-    outline: none !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
-  }
-  .zcinputbox input:focus {
-    border-color: #00b9ff !important;
-    box-shadow: 0 0 0 3px rgba(0,185,255,0.12) !important;
-  }
-  .zcinputbox input::placeholder { color: #3a4f6a !important; }
-
-  /* ── Captcha section ── */
-  #captchaOld {
-    padding: 0 !important;
-    margin: 12px 0 18px !important;
-  }
-  #captchaParent {
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-  .zc-captcha-label {
-    font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    color: #8a9ab8 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 12px !important;
-    width: 100% !important;
-  }
-  #captchaDiv {
-    background: #0e162c !important;
-    border: 1px solid rgba(0,185,255,0.2) !important;
-    border-radius: 10px !important;
-    padding: 12px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    min-height: 64px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  #captchaDiv img { max-width: 100% !important; height: auto !important; display: block !important; }
-  #captchaText {
-    width: 100% !important;
-    height: 48px !important;
-    padding: 0 14px !important;
-    background: #0e162c !important;
-    border: 1px solid rgba(0,185,255,0.2) !important;
-    border-radius: 10px !important;
-    color: #eaf0ff !important;
-    font-family: var(--font-body) !important;
-    font-size: 0.95rem !important;
-    outline: none !important;
-    margin-top: 0 !important;
-  }
-  #captchaText:focus { border-color: #00b9ff !important; box-shadow: 0 0 0 3px rgba(0,185,255,0.12) !important; }
-  #captchaText::placeholder { color: #3a4f6a !important; }
-  #relCaptcha {
-    flex-shrink: 0 !important;
-    cursor: pointer !important;
-    opacity: 0.75 !important;
-    transition: opacity 0.2s !important;
-    width: 22px !important;
-    height: 22px !important;
-    padding: 4px !important;
-    border-radius: 8px !important;
-    background: rgba(0,185,255,0.1) !important;
-    border: 1px solid rgba(0,185,255,0.2) !important;
-  }
-  #relCaptcha:hover { opacity: 1 !important; }
-  #capRequired { color: #00b9ff !important; font-size: 0.85rem !important; margin-left: 4px !important; }
-
-  /* ── Required fields note ── */
-  #REQUIRED_FIELD_TEXT {
-    color: #8b9ab8 !important;
-    font-size: 0.82rem !important;
-    padding: 10px 0 !important;
-    font-family: var(--font-body) !important;
-  }
-
-  /* ── Submit button ── */
-  #zcWebOptin {
-    display: block !important;
-    width: 100% !important;
-    padding: 16px !important;
-    background: linear-gradient(135deg, #00b9ff, #7c3aff) !important;
-    border: none !important;
-    border-radius: 8px !important;
-    color: #fff !important;
-    font-family: var(--font-display) !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    cursor: pointer !important;
-    letter-spacing: 0.04em !important;
-    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s !important;
-    box-shadow: 0 0 30px rgba(0,185,255,0.3) !important;
-    appearance: none !important;
-    -webkit-appearance: none !important;
-    margin-top: 4px !important;
-  }
-  #zcWebOptin:hover { opacity: 0.9 !important; transform: translateY(-2px) !important; box-shadow: 0 6px 40px rgba(0,185,255,0.45) !important; }
-
-  /* ── Privacy note ── */
-  #privacyNotes {
-    padding: 18px 24px 22px !important;
-    background: rgba(14, 22, 44, 0.5) !important;
-    height: auto !important;
-    font-size: 0.82rem !important;
-    line-height: 1.55 !important;
-    color: #6e829e !important;
-    font-family: var(--font-body) !important;
-    border-top: 1px solid rgba(0,185,255,0.1) !important;
-    margin: 0 !important;
-  }
-
-  /* ── Success message ── */
-  #Zc_SignupSuccess {
-    background: rgba(0,229,138,0.08) !important;
-    border: 2px solid rgba(0,229,138,0.35) !important;
-    border-radius: 10px !important;
-    padding: 14px !important;
-    margin: 0 0 16px !important;
-    color: #00e58a !important;
-  }
-  #signupSuccessMsg { color: #00e58a !important; font-family: var(--font-body) !important; font-size: 0.95rem !important; }
-
-  /* ── Success signup message box positioning ── */
-  #Zc_SignupSuccess { position: relative !important; margin-left: 0 !important; width: 100% !important; }
-
-  /* ── Remove Zoho SDK's default borders & backgrounds on inner wrappers ── */
-  #SIGNUP_BODY_ALL { border: none !important; background: transparent !important; }
-  .large_form_1_css { background: transparent !important; padding: 0 !important; }
-
-  /* ── Submit button container ── */
-  #zcWebOptin { display: block !important; width: 100% !important; margin: 0 !important; }
-  #zcWebOptin + div, [style*="padding:10px;text-align:center"] { padding: 0 !important; }
-
-  /* ── Separator line above required text ── */
-  [style*="border-bottom:#ebebeb"] { display: none !important; }
-
-  /* ── Zoho success popup panel ── */
-  #zcOptinSuccessPanel { color: #eaf0ff; font-family: var(--font-body); }
-
-  /* ── Mobile: 16px inputs prevent iOS zoom; comfortable tap targets ── */
-  @media (max-width: 767px) {
-    #SIGNUP_BODY {
-      padding-left: max(16px, env(safe-area-inset-left, 0px)) !important;
-      padding-right: max(16px, env(safe-area-inset-right, 0px)) !important;
-    }
-    .zcinputbox input[type="text"],
-    .zcinputbox input[type="email"],
-    .zcinputbox input[type="tel"] {
-      font-size: 16px !important;
-    }
-    #captchaText {
-      font-size: 16px !important;
-    }
-    #zcWebOptin {
-      min-height: 48px !important;
-      padding-top: 14px !important;
-      padding-bottom: 14px !important;
-    }
-    #privacyNotes {
-      padding-left: max(16px, env(safe-area-inset-left, 0px)) !important;
-      padding-right: max(16px, env(safe-area-inset-right, 0px)) !important;
-    }
-  }
   </style>
 </head>
 <body>
@@ -2304,7 +2099,7 @@
   <div class="announcement-bar-inner">
     <span class="announcement-bar-badge">Free event</span>
     <p class="announcement-bar-text">
-      <strong>Physical</strong> at Eko Hotel — complimentary seats capped at <strong>100</strong> (selection) ·
+      <strong>Physical</strong> at Eko Hotel — complimentary in-person seats capped at <strong>100</strong> ·
       Everyone else attends <strong>online</strong> at no cost.
     </p>
   </div>
@@ -2320,7 +2115,7 @@
     <a href="#pain" class="nav-link">About</a>
     <a href="#host" class="nav-link">Speaker</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#register" class="nav-cta">Apply Now →</a>
+    <a href="#registration-form" class="nav-cta">Register →</a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -2331,7 +2126,7 @@
   <a href="#host" onclick="closeMenu()">Meet the Speaker</a>
   <a href="#why" onclick="closeMenu()">Why Attend</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
-  <a href="#register" class="mob-cta" onclick="closeMenu()">👉 Apply Now — Free</a>
+  <a href="#registration-form" class="mob-cta" onclick="closeMenu()">Register — free</a>
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
@@ -2346,7 +2141,7 @@
     <div class="hero-main">
       <div class="live-badge">
         <span class="live-dot"></span>
-        Registration Now Open — Limited Spots
+        Saturday 25 April 2026 · Eko Hotel, Lagos
       </div>
 
       <h1>
@@ -2360,14 +2155,14 @@
       </p>
 
       <div class="urgency-bar">
-        ⚠️ &nbsp; Free event: <strong>100 in-person seats</strong> at Eko Hotel (physical, by selection). Additional attendees join <strong>online</strong> at no cost — all subject to selection.
+        ⚠️ &nbsp; Free event: <strong>100 in-person seats</strong> at Eko Hotel. Additional attendees join <strong>online</strong> at no cost.
       </div>
 
       <div class="hero-actions">
-        <a href="#register" class="btn-primary">
-          Apply Now to Secure Your Spot
+        <a href="#registration-form" class="btn-primary">
+          Register free
         </a>
-        <span class="btn-sub">Takes less than 60 seconds · No credit card required</span>
+        <span class="btn-sub">100% free · No credit card required</span>
       </div>
     </div>
 
@@ -2601,7 +2396,7 @@
           </div>
         </div>
 
-        <a href="#register" class="btn-primary" style="font-size:1rem; padding:18px 44px; align-self:flex-start; display:inline-flex;">
+        <a href="#registration-form" class="btn-primary" style="font-size:1rem; padding:18px 44px; align-self:flex-start; display:inline-flex;">
           Learn From Dr. Akintayo →
         </a>
       </div>
@@ -2686,7 +2481,7 @@
     <div class="scarcity-inner reveal">
       <span class="section-tag tag-centered">⚠️ Limited Access</span>
       <h2 style="margin-top: 24px;">This Is <span class="text-accent">Not</span> an Open Event</h2>
-      <p>Due to limited seating and the quality of attendees we want to maintain, registration is strictly by selection. Once slots are filled, registration closes permanently — no exceptions.</p>
+      <p>Physical seats at Eko Hotel are limited. Once they’re filled, only online participation remains — so don’t wait if you plan to attend in person.</p>
 
       <div class="seats-widget">
         <div class="seats-top">
@@ -2699,8 +2494,8 @@
         <div class="seats-bottom">Registration closes when <strong>all seats are taken</strong></div>
       </div>
 
-      <a href="#register" class="btn-primary" style="font-size:1.1rem; padding:20px 52px;">
-        👉 Secure My Spot Before It's Gone
+      <a href="#registration-form" class="btn-primary" style="font-size:1.1rem; padding:20px 52px;">
+        👉 Register now
       </a>
     </div>
   </div>
@@ -2712,9 +2507,9 @@
   <div class="cta-inner reveal">
     <span class="section-tag tag-centered cta-eyebrow">🚀 Don't Miss Out</span>
     <h2 style="margin-top: 24px;">Don't Wait Until Your<br/>Competitors Leave You Behind</h2>
-    <p>Apply now and secure your chance to attend this exclusive AI masterclass conference — completely free.</p>
-    <a href="#register" class="btn-white">
-      👉 APPLY NOW — It's 100% Free
+    <p>Mark your calendar for this free AI masterclass — practical strategies for business owners.</p>
+    <a href="#registration-form" class="btn-white">
+      👉 Register — it’s free
     </a>
   </div>
 </section>
@@ -2727,7 +2522,7 @@
     <div class="faq-header reveal">
       <span class="section-tag tag-centered">❓ Frequently Asked Questions</span>
       <h2>Everything You Need<br/>to <span class="text-accent">Know</span></h2>
-      <p>Here are the most common questions people ask before applying. Don't see yours? Just apply and we'll reach out personally.</p>
+      <p>Here are the most common questions people ask before the event.</p>
     </div>
 
     <div class="faq-layout">
@@ -2740,13 +2535,13 @@
             📅 &nbsp;Saturday, 25th April 2026<br/>
             ⏰ &nbsp;8:00 AM – 12:00 PM<br/>
             📍 &nbsp;Eko Hotel, Lagos<br/>
-            🎟️ &nbsp;100% Free — 100 physical seats + unlimited online (by selection)<br/>
+            🎟️ &nbsp;100% Free — 100 physical seats + unlimited online<br/>
             👤 &nbsp;Host: Dr. Stephen Akintayo
           </p>
         </div>
         <div class="faq-still-have">
           <p>Still have a question we didn't answer?</p>
-          <a href="#register" class="faq-cta-small">Apply Now — It's Free →</a>
+          <a href="#registration-form" class="faq-cta-small">Register →</a>
         </div>
       </div>
 
@@ -2757,7 +2552,7 @@
             Is the event really free?
             <span class="faq-chevron">▾</span>
           </button>
-          <div class="faq-a">Yes, attendance is completely free. However, only selected applicants will be admitted. We review each application to ensure we maintain a high-quality room of participants.</div>
+          <div class="faq-a">Yes, attendance is completely free. In-person capacity at Eko Hotel is limited; additional attendees can join online at no cost.</div>
         </div>
         <div class="faq-item reveal d2">
           <button class="faq-q" onclick="toggleFaq(this)">
@@ -2785,21 +2580,7 @@
             Where exactly is the venue?
             <span class="faq-chevron">▾</span>
           </button>
-          <div class="faq-a">The event is at Eko Hotel, Lagos. The specific hall and parking information will be shared with confirmed attendees via email after selection.</div>
-        </div>
-        <div class="faq-item reveal d5">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            I don’t have a company website — can I still apply?
-            <span class="faq-chevron">▾</span>
-          </button>
-          <div class="faq-a">Yes. Use your LinkedIn profile URL or any public page in the “website” field. If you have no online presence, enter N/A — we still review every application.</div>
-        </div>
-        <div class="faq-item reveal" style="transition-delay:0.6s">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            How soon will I hear back after applying?
-            <span class="faq-chevron">▾</span>
-          </button>
-          <div class="faq-a">We review applications on a rolling basis. You'll typically receive a confirmation or update within 24–48 hours of applying. Apply as early as possible to improve your chances.</div>
+          <div class="faq-a">The event is at Eko Hotel, Lagos. Hall and parking details will be shared closer to the event date.</div>
         </div>
       </div>
 
@@ -2819,132 +2600,50 @@
       The question is: will you <em>use it to win</em>… or be replaced by those who do?<br/>
       Your competitors aren't waiting. Neither should you.
     </p>
-    <a href="#register" class="btn-primary reveal" style="font-size:1.15rem; padding:22px 64px;">
-      👉 Apply Now Before Registration Closes
+    <a href="#registration-form" class="btn-primary reveal" style="font-size:1.15rem; padding:22px 64px;">
+      👉 Register now
     </a>
   </div>
 </section>
 
 <!-- ═══════════ REGISTER ═══════════ -->
-<section class="register-section" id="register">
+<section class="register-section" id="register" aria-labelledby="register-heading">
   <div class="container">
     <div class="register-wrap">
 
       <div class="register-left reveal-left">
-        <p class="register-kicker">Application</p>
-        <h2 style="margin-top:4px;">Request your seat</h2>
-        <p class="register-lead">Short form, reviewed by our team. If you’re selected, we’ll confirm by email within 24–48 hours.</p>
+        <p class="register-kicker">Registration</p>
+        <h2 id="register-heading" style="margin-top:4px;">Save your spot</h2>
+        <p class="register-lead">Free half-day masterclass — in person at Eko Hotel or online. Submit the form below and we’ll follow up by email.</p>
         <div class="register-meta">
           <span><strong>When</strong> Sat 25 Apr 2026 · 8:00–12:00</span>
           <span><strong>Where</strong> Eko Hotel, Lagos</span>
         </div>
         <div class="register-perks">
-          <div class="register-perk"><div class="register-perk-icon">1</div> Free to attend — admission is by selection only</div>
-          <div class="register-perk"><div class="register-perk-icon">2</div> Same-day email acknowledgement; decision within 24–48 hours</div>
+          <div class="register-perk"><div class="register-perk-icon">1</div> Free to attend — limited in-person seats; unlimited online</div>
+          <div class="register-perk"><div class="register-perk-icon">2</div> Practical strategies you can use from day one</div>
           <div class="register-perk"><div class="register-perk-icon">3</div> Four-hour masterclass with Dr. Stephen Akintayo</div>
         </div>
-        <p class="register-trust">No company website? Use a LinkedIn profile URL or any public page. If you have no web presence, enter <code>N/A</code> — we still review every application.</p>
       </div>
 
-      <div class="register-form-box reveal-right">
+      <div class="register-form-box reveal-right" id="registration-form">
         <div class="register-form-head">
-          <div class="register-form-head-title">Apply in about two minutes</div>
-          <div class="register-form-head-sub">Use an email you check daily — that’s where we’ll send your result.</div>
+          <div class="register-form-head-title">AI Business Conference</div>
+          <div class="register-form-head-sub">Takes about two minutes. Scroll inside the box if you need more room.</div>
         </div>
-        <!--Zoho Campaigns Web-Optin Form Starts Here-->
-        <div id="sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a" data-type="signupform">
-          <div id="customForm">
-            <input type="hidden" id="recapTheme" value="2">
-            <input type="hidden" id="isRecapIntegDone" value="false">
-            <input type="hidden" id="signupFormMode" value="copyCode">
-            <input type="hidden" id="signupFormType" value="LargeForm_Vertical">
-            <input type="hidden" id="recapModeTheme" value="">
-            <div name="SIGNUP_PAGE" class="large_form_1_css" id="SIGNUP_PAGE">
-              <div name="" changeid="" changename="">
-                <div id="imgBlock" name="LOGO_DIV" logo="true">
-                  <img valign="middle" src="https://stratus.campaign-image.com/images/136501c1a_509.png" name="LOGO" id="iframeImg" alt="">
-                </div>
-              </div>
-              <div id="signupMainDiv" name="SIGNUPFORM" changeid="SIGNUPFORM" changename="SIGNUPFORM">
-                <div>
-                  <div style="position:relative;">
-                    <div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color:white;padding:3px;border:3px solid rgb(194,225,154);margin-top:10px;margin-bottom:10px;word-break:break-all">
-                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                        <tbody><tr>
-                          <td width="10%"><img class="successicon" src="https://zvqjc-zgpl.maillist-manage.com/images/challangeiconenable.jpg" align="absmiddle" alt=""></td>
-                          <td><span id="signupSuccessMsg">&nbsp;&nbsp;Thank you for Signing Up</span></td>
-                        </tr></tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <form method="POST" id="zcampaignOptinForm" action="https://zvqjc-zgpl.maillist-manage.com/weboptin.zc" target="_zcSignup">
-                    <div id="SIGNUP_BODY_ALL" name="SIGNUP_BODY_ALL">
-                      <h1 id="SIGNUP_HEADING" name="SIGNUP_HEADING" changeid="SIGNUP_MSG" changetype="SIGNUP_HEADER">Signup to ABO Conference</h1>
-                      <div id="SIGNUP_BODY" name="SIGNUP_BODY">
-                        <div>
-                          <div class="" changeid="SIGNUP_MSG" id="SIGNUP_DESCRIPTION" changetype="SIGNUP_DESCRIPTION">Complete this form to apply for your free seat.</div>
-                          <div id="errorMsgDiv">&nbsp;&nbsp;Please correct the marked field(s) below.</div>
-                          <div>
-                            <div name="fieldsdivSf" class="zcsffieldsdiv">
-                              <div><div><div name="SIGNUP_FORM_LABEL">Contact Email&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="CONTACT_EMAIL" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="email" autocomplete="email" inputmode="email"><span style="display:none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">First Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="FIRSTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="given-name"><span style="display:none" id="dt_FIRSTNAME">1,true,1,First Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Last Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="LASTNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text" autocomplete="family-name"><span style="display:none" id="dt_LASTNAME">1,true,1,Last Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Phone&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="PHONE" changeitem="SIGNUP_FORM_FIELD" maxlength="20" type="tel" autocomplete="tel" inputmode="tel"><span style="display:none" id="dt_PHONE">1,true,1,Phone,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Company Name&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="COMPANYNAME" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="organization"><span style="display:none" id="dt_COMPANYNAME">1,true,1,Company Name,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Website or public profile&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="WEBSITE" changeitem="SIGNUP_FORM_FIELD" maxlength="250" type="text" autocomplete="url" placeholder="https://… , LinkedIn, or N/A"><span style="display:none" id="dt_WEBSITE">1,true,1,Website Address,2</span></div></div><div></div></div>
-                              <div><div><div name="SIGNUP_FORM_LABEL">Job Title&nbsp;<span name="SIGNUP_REQUIRED">*</span></div><div class="zcinputbox"><input name="JOB_TITLE" changeitem="SIGNUP_FORM_FIELD" maxlength="50" type="text" autocomplete="organization-title"><span style="display:none" id="dt_JOB_TITLE">1,true,1,Job Title,2</span></div></div><div></div></div>
-                            </div>
-                            <div style="padding:10px 0px 10px 0px;" id="captchaOld" class="recaptcha" name="captchaContainer">
-                              <div><div id="captchaParent">
-                                <div class="zc-captcha-label">
-                                  <span>Security check <span name="SIGNUP_REQUIRED" id="capRequired">*</span></span>
-                                  <img src="https://campaigns.zoho.com/images/refresh_icon.png" alt="Show new code" title="New code" width="20" height="20" onclick="loadCaptcha('https://campaigns.zoho.com/campaigns/CaptchaVerify.zc?mode=generate',this,'#sf3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a');" id="relCaptcha">
-                                </div>
-                                <div id="captchaDiv" captcha="true" name=""></div>
-                                <label for="captchaText" class="sr-only">Enter the characters shown in the image above</label>
-                                <input placeholder="Type the characters from the image" id="captchaText" name="captchaText" changeitem="SIGNUP_FORM_FIELD" maxlength="100" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text">
-                              </div></div>
-                            </div>
-                            <input type="hidden" id="secretid" value="6LdNeDUUAAAAAG5l7cJfv1AA5OKLslkrOa_xXxLs">
-                            <div id="REQUIRED_FIELD_TEXT" changetype="REQUIRED_FIELD_TEXT" name="SIGNUP_REQUIRED">*Required fields</div>
-                            <div>
-                              <input type="button" action="Save" id="zcWebOptin" name="SIGNUP_SUBMIT_BUTTON" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" value="Submit application">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <input type="hidden" id="fieldBorder" value="" onload="">
-                      <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW" onload="">
-                      <input type="hidden" name="viewFrom" id="viewFrom" value="URL_ACTION">
-                      <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
-                      <input type="hidden" id="lD" name="lD" value="114a4609bfc084128">
-                      <input type="hidden" name="emailReportId" id="emailReportId" value="">
-                      <input type="hidden" name="zx" id="cmpZuid" value="136501c1a">
-                      <input type="hidden" name="zcvers" value="3.0">
-                      <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
-                      <input type="hidden" id="mode" name="mode" value="OptinCreateView">
-                      <input type="hidden" id="zcld" name="zcld" value="114a4609bfc084128">
-                      <input type="hidden" id="zctd" name="zctd" value="114a4609bfbd077a9">
-                      <input type="hidden" id="document_domain" value="">
-                      <input type="hidden" id="zc_Url" value="zvqjc-zgpl.maillist-manage.com">
-                      <input type="hidden" id="new_optin_response_in" value="0">
-                      <input type="hidden" id="duplicate_optin_response_in" value="0">
-                      <input type="hidden" id="zc_formIx" name="zc_formIx" value="3za858ef76def5ff2908d07d79214ef920c75cd5b23777a4a94282ecfe64574f6a">
-                    </div>
-                  </form>
-                </div>
-                <div id="privacyNotes" identity="privacyNotes">
-                  <span>Your details are only used to process this application and contact you about ABO Conference. We don’t sell or share your data.</span>
-                </div>
-              </div>
-            </div>
-            <input type="hidden" id="isCaptchaNeeded" value="true">
-            <input type="hidden" id="superAdminCap" value="0">
-            <img src="https://zvqjc-zgpl.maillist-manage.com/images/spacer.gif" id="refImage" onload="referenceSetter(this)" style="display:none;" alt="">
-          </div>
+        <ol class="register-quick-steps" aria-label="How to register">
+          <li><span class="step-num">1</span> Fill in your details</li>
+          <li><span class="step-num">2</span> Submit</li>
+          <li><span class="step-num">3</span> Watch your inbox</li>
+        </ol>
+        <p class="register-form-tip"><strong>Tip:</strong> Use an email you check often — that’s where we’ll send your confirmation.</p>
+        <div class="register-form-iframe-wrap">
+          <iframe class="register-zoho-iframe" title="AI Business Conference registration form" aria-label="AI BUSINESS CONFERENCE" frameborder="0" src="https://forms.zohopublic.com/stephenstephen1/form/AIBUSINESSCONFERENCE/formperma/3ZVP-qb5uJxgLpF0-f8-L3yNKDp3AdrzhIUhlBKJKHc"></iframe>
         </div>
-        <!--Zoho Campaigns Web-Optin Form Ends Here-->
-      </div><!-- /.register-form-box -->
+        <p class="register-form-open-tab">
+          <a href="https://forms.zohopublic.com/stephenstephen1/form/AIBUSINESSCONFERENCE/formperma/3ZVP-qb5uJxgLpF0-f8-L3yNKDp3AdrzhIUhlBKJKHc" target="_blank" rel="noopener noreferrer">Having trouble? Open the form in a new tab →</a>
+        </p>
+      </div>
     </div><!-- /.register-wrap -->
   </div><!-- /.container -->
 </section>
@@ -2959,23 +2658,13 @@
       <p style="margin-top:8px; font-size:0.82rem; color: var(--muted);">Powered by the Stephen Akintayo Foundation</p>
     </div>
     <div class="footer-cta">
-      <a href="#register">Apply Now — Free →</a>
+      <a href="#registration-form">Register →</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 ABO Conference. All rights reserved. | Powered by Stephen Akintayo Foundation</p>
   </div>
 </footer>
-
-<!-- Zoho submits into this frame (avoids blocked pop-ups / missing target) -->
-<iframe name="_zcSignup" id="zcSignupFrame" title="Registration response" style="display:none;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
-
-<!-- Zoho overlay + success popup (required by Zoho SDK) -->
-<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align:center;background-color:rgba(0,0,0,0.75);z-index:1000;position:fixed;width:100%;top:0px;left:0px;height:100%;"></div>
-<div id="zcOptinSuccessPopup" style="display:none;z-index:9999;width:min(520px,92vw);top:50%;left:50%;transform:translate(-50%,-50%);position:fixed;background:#0e162c;border:1px solid rgba(0,185,255,0.22);border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5);padding:40px 36px;">
-  <span style="position:absolute;top:14px;right:16px;z-index:99999;cursor:pointer;opacity:0.5;font-size:1.4rem;color:#eaf0ff;line-height:1;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none';document.getElementById('zcOptinOverLay').style.display='none';">✕</span>
-  <div id="zcOptinSuccessPanel"></div>
-</div>
 
 <script>
   /* ── MOBILE MENU ── */
@@ -3016,44 +2705,6 @@
   }, revealOpts);
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
-
-  /* Zoho: hostname helps some Campaigns endpoints validate embedded forms */
-  (function () {
-    var dd = document.getElementById('document_domain');
-    if (dd && !dd.value) {
-      try { dd.value = location.hostname || ''; } catch (e) {}
-    }
-  })();
-
-  /* Meta Pixel: fire Lead when Zoho shows success (inline #Zc_SignupSuccess or #zcOptinSuccessPopup) */
-  (function () {
-    if (typeof MutationObserver === 'undefined') return;
-    var popup = document.getElementById('zcOptinSuccessPopup');
-    var inline = document.getElementById('Zc_SignupSuccess');
-    if (!popup && !inline) return;
-    var fired = false;
-    function isSuccessVisible(el) {
-      if (!el) return false;
-      try {
-        var cs = window.getComputedStyle(el);
-        return cs.display !== 'none' && cs.visibility !== 'hidden';
-      } catch (e) {
-        return false;
-      }
-    }
-    function tryLead() {
-      if (fired || typeof fbq !== 'function') return;
-      if (isSuccessVisible(popup) || isSuccessVisible(inline)) {
-        fired = true;
-        fbq('track', 'Lead');
-        mo.disconnect();
-      }
-    }
-    var mo = new MutationObserver(tryLead);
-    if (popup) mo.observe(popup, { attributes: true, attributeFilter: ['style', 'class'] });
-    if (inline) mo.observe(inline, { attributes: true, attributeFilter: ['style', 'class'] });
-    tryLead();
-  })();
 
   /* ── SEATS BAR ── */
   const seatObserver = new IntersectionObserver((entries) => {
